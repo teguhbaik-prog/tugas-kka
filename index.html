@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Analisis AI dalam Film: Sebuah Kajian tentang Penggambaran Teknologi Masa Depan</title>
+  <meta name="description" content="Presentasi KKA: Analisis bagaimana AI digambarkan dalam film, implikasi sosial, dan rekomendasi." />
+
+  <!-- Styles: biru & putih theme dengan aksen merah -->
+  <style>
+    :root{
+      --bg:#f6fbff;
+      --blue-900:#0b3d91;
+      --blue-600:#1e66c8;
+      --blue-300:#a7cef2;
+      --white:#ffffff;
+      --accent:#d62828; /* merah untuk menonjolkan */
+      --muted:#6b7280;
+      --max-width:1100px;
+      --radius:14px;
+      --glass: rgba(255,255,255,0.75);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; background:linear-gradient(180deg,var(--bg),#eaf4ff);color:#07203b}
+
+    /* container */
+    .wrap{max-width:var(--max-width);margin:24px auto;padding:18px}
+
+    /* Header / Hero */
+    header.hero{
+      position:relative;overflow:hidden;border-radius:18px;padding:36px;background-image:linear-gradient(120deg, rgba(11,61,145,0.85) 0%, rgba(30,102,200,0.75) 60%), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=000000');background-size:cover;background-position:center;color:white;
+      box-shadow:0 8px 30px rgba(15,38,60,0.12);
+    }
+    header.hero .hero-inner{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    header h1{margin:0;font-size:1.6rem;line-height:1.05}
+    header p.lead{margin:10px 0 0;opacity:0.95}
+    .cta-row{display:flex;gap:8px;margin-top:12px}
+    .btn{background:var(--white);color:var(--blue-900);padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;box-shadow:0 6px 18px rgba(7,32,59,0.12)}
+    .btn.ghost{background:transparent;color:rgba(255,255,255,0.95);border:1px solid rgba(255,255,255,0.12)}
+
+    /* Navigation */
+    nav.topnav{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+    .nav-links{display:flex;gap:12px;align-items:center}
+    .nav-links a{color:var(--blue-900);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    .nav-links a.active{background:var(--blue-300);color:var(--white)}
+
+    /* Mobile hamburger */
+    .hamburger{display:none;cursor:pointer;padding:8px;border-radius:8px}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--blue-900);margin:4px 0;border-radius:2px}
+
+    /* Main sections */
+    main{margin-top:18px}
+    section.card{background:var(--white);border-radius:var(--radius);padding:22px;margin:18px 0;box-shadow:0 6px 18px rgba(10,30,70,0.06)}
+    section.card h2{margin-top:0;color:var(--blue-900)}
+    .meta{font-size:0.95rem;color:var(--muted)}
+
+    /* Grid layout */
+    .two-col{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+    .sidecard{background:linear-gradient(180deg,var(--glass),rgba(255,255,255,0.9));padding:14px;border-radius:12px}
+
+    /* Quote block */
+    blockquote{margin:0;padding:12px 16px;border-left:4px solid var(--accent);background:#fff9f9;border-radius:8px}
+
+    /* References list */
+    .refs{list-style:disc;margin-left:18px;color:var(--muted)}
+
+    /* Footer */
+    footer{margin-top:24px;text-align:center;color:var(--muted);font-size:0.9rem}
+
+    /* Reveal animation */
+    .reveal{opacity:0;transform:translateY(12px);transition:all 650ms cubic-bezier(.2,.9,.2,1)}
+    .reveal.revealed{opacity:1;transform:none}
+
+    /* Small interactions */
+    .highlight{color:var(--accent);font-weight:700}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--blue-300),var(--blue-600));color:white;font-weight:700}
+
+    /* Progress / reading position */
+    #progressBar{position:fixed;left:0;top:0;height:4px;background:var(--accent);width:0;z-index:9999}
+
+    /* Responsive */
+    @media (max-width:920px){
+      .two-col{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .hamburger{display:block}
+      header h1{font-size:1.3rem}
+      header.hero{padding:22px}
+    }
+
+    @media (max-width:520px){
+      .wrap{padding:12px}
+      header h1{font-size:1.05rem}
+      .sidecard{display:none}
+    }
+
+    /* Focus styles for accessibility */
+    a:focus{outline:3px solid rgba(30,102,200,0.18);outline-offset:3px}
+
+  </style>
+</head>
+<body>
+  <div id="progressBar"></div>
+  <div class="wrap" role="main">
+
+    <nav class="topnav" aria-label="Navigasi presentasi">
+      <div class="brand" style="display:flex;align-items:center;gap:12px">
+        <svg width="38" height="38" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#ffffff" d="M12 2L2 7v6c0 5 5 9 10 9s10-4 10-9V7l-10-5z"/></svg>
+        <div>
+          <div style="font-weight:800;color:var(--blue-900)">Analisis AI dalam Film</div>
+          <div style="font-size:0.8rem;color:var(--muted)">Kajian penggambaran teknologi masa depan</div>
+        </div>
+      </div>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#intro" data-target="intro" class="nav-link">Pengenalan</a>
+        <a href="#analysis" data-target="analysis" class="nav-link">Analisis</a>
+        <a href="#discussion" data-target="discussion" class="nav-link">Diskusi</a>
+        <a href="#conclusion" data-target="conclusion" class="nav-link">Kesimpulan</a>
+        <a href="#refs" data-target="refs" class="nav-link">Referensi</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" role="banner">
+      <div class="hero-inner">
+        <div style="max-width:640px">
+          <h1>Analisis AI dalam Film: <br/><small style="font-weight:600;font-size:0.85rem;opacity:0.95">Sebuah Kajian tentang Penggambaran Teknologi Masa Depan</small></h1>
+          <p class="lead">Presentasi KKA yang mengkaji bagaimana film menggambarkan kecerdasan buatan, adegan penting, kutipan, serta implikasi sosialnya.</p>
+          <div class="cta-row">
+            <a class="btn" href="#analysis">Mulai Presentasi</a>
+            <a class="btn ghost" href="#refs">Lihat Referensi</a>
+          </div>
+        </div>
+        <div style="min-width:220px;display:flex;flex-direction:column;gap:10px;align-items:flex-end">
+          <div class="sidecard" role="complementary">
+            <strong>Durasi presentasi</strong>
+            <div style="font-size:0.95rem;margin-top:6px">Diperkirakan 7–10 menit (slide ringkas dan point penting saja)</div>
+            <div style="margin-top:10px"><span class="pill">KKA - Analisis Film</span></div>
+          </div>
+          <div class="sidecard" style="text-align:right">
+            <small class="meta">Navigasi: klik menu atau gunakan tombol panah untuk berpindah antar section</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main sections -->
+    <main>
+
+      <section id="intro" class="card reveal" tabindex="0" aria-labelledby="introTitle">
+        <h2 id="introTitle">Pengenalan</h2>
+        <div class="two-col">
+          <div>
+            <p class="meta">Apa itu AI? — singkat</p>
+            <p>Artificial Intelligence (AI) merujuk pada sistem komputer yang mampu melakukan tugas yang biasanya memerlukan kecerdasan manusia: pengenalan pola, pengambilan keputusan, pemrosesan bahasa, dan pembelajaran dari data. Dalam film, AI sering digambarkan secara dramatis untuk meningkatkan ketegangan atau untuk mengeksplorasi konsekuensi etika.</p>
+
+            <h3>Film yang dianalisis</h3>
+            <p>Contoh film (pilih salah satu untuk tugas): <strong>Ex Machina, Her, Blade Runner, A.I. Artificial Intelligence</strong>. Pilih film sesuai tugas KKA — di sini struktur menyajikan contoh-potongan adegan dan kutipan yang umum dianalisis.</p>
+          </div>
+
+          <aside class="sidecard" aria-hidden="false">
+            <strong>Catatan penggunaan</strong>
+            <p style="margin-top:6px">Gunakan slide ini sebagai kerangka. Tambahkan screenshot adegan, timestamp, dan kutipan asli dari film di bagian Analisis.</p>
+            <div style="margin-top:8px"><small class="meta">Aksesibilitas: semua gambar harus punya atribut alt ketika ditambahkan.</small></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="analysis" class="card reveal" tabindex="0" aria-labelledby="analysisTitle">
+        <h2 id="analysisTitle">Analisis Penggambaran AI dalam Film</h2>
+        <p class="meta">Fokus: representasi teknis, emosional, dan etika</p>
+
+        <article>
+          <h3>1. Representasi teknis</h3>
+          <p>Film sering menyederhanakan atau melebih-lebihkan kemampuan AI untuk kebutuhan plot. Perhatikan: bagaimana antarmuka ditampilkan, apakah AI punya suara manusia, seberapa otomatis perilaku AI, dan apakah film menyebutkan mekanisme teknis (mis. neural network, algoritma pembelajaran).</p>
+
+          <h3>2. Representasi emosional</h3>
+          <p>Banyak film memberi AI sifat-sifat manusia (empathy, kecemburuan, gairah) untuk menciptakan hubungan emosional dengan penonton. Ini bisa memunculkan pertanyaan: apakah kesan emosi tersebut realistis atau dramatisasi?</p>
+
+          <h3>3. Contoh adegan & kutipan</h3>
+          <p>Tambahkan kutipan tepat dan timestamp. Contoh: <blockquote>"It’s not a lie if you believe it." — (contoh kutipan fiktif untuk ilustrasi).</blockquote>
+          Gunakan blockquote untuk menonjolkan kutipan-kutipan kunci dan jelaskan konteks adegan.</p>
+        </article>
+
+        <div style="margin-top:12px">
+          <button class="btn" id="openExamples">Tampilkan contoh adegan (demo)</button>
+        </div>
+
+      </section>
+
+      <section id="discussion" class="card reveal" tabindex="0" aria-labelledby="discussionTitle">
+        <h2 id="discussionTitle">Diskusi: Implikasi Sosial</h2>
+        <p class="meta">Apa yang film ingin sampaikan tentang teknologi dan masyarakat?</p>
+        <ul>
+          <li><strong>Etika & tanggung jawab:</strong> Siapa yang bertanggung jawab saat AI berbuat salah?</li>
+          <li><strong>Pengaruh pada pekerjaan:</strong> Pergeseran peran manusia dan otomatisasi.</li>
+          <li><strong>Hubungan manusia-AI:</strong> Potensi hubungan emosional dan risiko isolasi sosial.</li>
+          <li><strong>Ketakutan & harapan publik:</strong> Film mencerminkan sekaligus membentuk pandangan publik terhadap AI.</li>
+        </ul>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+          <div class="sidecard" style="flex:1;min-width:220px">
+            <strong>Pertanyaan diskusi</strong>
+            <ol style="margin:8px 0 0 18px;color:var(--muted)">
+              <li>Apakah AI di film itu benar-benar sadar?</li>
+              <li>Apakah interaksi manusia-AI menggambarkan hubungan yang sehat?</li>
+              <li>Siapa yang diuntungkan dan dirugikan oleh teknologi dalam film tersebut?</li>
+            </ol>
+          </div>
+
+          <div class="sidecard" style="min-width:200px;align-self:flex-start">
+            <strong>Tip analisis</strong>
+            <p style="margin-top:8px">Bandingkan sudut pandang sutradara, sinematografi, musik latar, dan naskah untuk melihat bagaimana emosi dan pesan moral disampaikan.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="conclusion" class="card reveal" tabindex="0" aria-labelledby="conclusionTitle">
+        <h2 id="conclusionTitle">Kesimpulan & Rekomendasi</h2>
+        <p class="meta">Ringkasan temuan</p>
+        <ul>
+          <li>Film cenderung dramatik namun berguna sebagai alat untuk membahas persoalan etika AI.</li>
+          <li>Rekomendasi: gunakan pendekatan interdisipliner (teknis + humaniora) saat menganalisis film AI.</li>
+          <li>Catatan: Perkuat analisis dengan kutipan langsung, data penelitian, dan wawancara jika memungkinkan.</li>
+        </ul>
+      </section>
+
+      <section id="refs" class="card reveal" tabindex="0" aria-labelledby="refsTitle">
+        <h2 id="refsTitle">Referensi</h2>
+        <p class="meta">Beberapa sumber yang dapat digunakan dalam penelitian</p>
+        <ol class="refs">
+          <li>Nama Sutradara, Tahun — Judul Film. (Gunakan format kutipan yang disepakati oleh pengajar.)</li>
+          <li>Artikel ilmiah tentang etika AI (contoh jurnal: AI & Society, Ethics and Information Technology).</li>
+          <li>Buku: "Machines Like Us" — kajian filosofi tentang kecerdasan buatan (contoh).</li>
+          <li>Sumber daring: ulasan film, wawancara pembuat film, dan transkrip dialog (catat URL dan tanggal akses).</li>
+        </ol>
+
+        <p style="margin-top:12px;color:var(--muted)">Tambahkan daftar pustaka lengkap sesuai format sitasi yang diminta (APA/MLA/Chicago).</p>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="margin-top:12px">© Presentasi KKA — Analisis AI dalam Film • Dibuat dengan HTML / CSS / JS</div>
+      <div style="margin-top:6px;color:var(--muted)">Tip: tekan <kbd>←</kbd> <kbd>→</kbd> untuk berpindah section</div>
+    </footer>
+  </div>
+
+  <!-- Modal for example scenes -->
+  <div id="modal" role="dialog" aria-hidden="true" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.55);z-index:9999">
+    <div style="background:var(--white);max-width:820px;width:92%;border-radius:12px;padding:18px;box-shadow:0 18px 60px rgba(3,8,30,0.5)">
+      <button id="modalClose" style="float:right;background:transparent;border:none;font-weight:800;font-size:18px;cursor:pointer">✕</button>
+      <h3>Contoh Adegan (Demo)</h3>
+      <p class="meta">Demo sederhana menampilkan kutipan dan konteks adegan — tambahkan screenshot dan timestamp di versi final.</p>
+      <blockquote>"I asked for a mirror, and you gave me a doorway." — <small style="color:var(--muted)">(contoh kutipan)</small></blockquote>
+      <p style="margin-top:10px">Konteks: adegan ketika karakter utama menyadari kebebasan dan konsekuensi tindakan AI.</p>
+    </div>
+  </div>
+
+  <!-- JavaScript: interaktivitas, smooth scroll, reveal, keyboard nav -->
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-link').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();const id=a.getAttribute('href').slice(1);document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+
+    // Hamburger toggle (mobile)
+    const hamburger=document.getElementById('hamburger');
+    const navLinks=document.getElementById('navLinks');
+    hamburger.addEventListener('click', ()=>{
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      if(!expanded){navLinks.style.display='flex';navLinks.style.flexDirection='column';navLinks.style.position='absolute';navLinks.style.right='18px';navLinks.style.top='64px';navLinks.style.background='var(--white)';navLinks.style.padding='10px';navLinks.style.borderRadius='10px';navLinks.style.boxShadow='0 8px 30px rgba(7,32,59,0.08)'} else {navLinks.style.display='none'}
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(ent=>{
+        if(ent.isIntersecting){ent.target.classList.add('revealed');}
+      });
+    },{threshold:0.12});
+    reveals.forEach(r=>io.observe(r));
+
+    // Modal for example
+    const modal=document.getElementById('modal');
+    document.getElementById('openExamples').addEventListener('click', ()=>{modal.style.display='flex';modal.setAttribute('aria-hidden','false')});
+    document.getElementById('modalClose').addEventListener('click', ()=>{modal.style.display='none';modal.setAttribute('aria-hidden','true')});
+
+    // Keyboard navigation left/right
+    const sections = Array.from(document.querySelectorAll('main section'));
+    let current = 0;
+    function goToIndex(i){i=Math.max(0,Math.min(sections.length-1,i));sections[i].scrollIntoView({behavior:'smooth',block:'start'});}
+    window.addEventListener('keydown', e=>{
+      if(e.key==='ArrowRight'){current=Math.min(sections.length-1, current+1);goToIndex(current)}
+      if(e.key==='ArrowLeft'){current=Math.max(0, current-1);goToIndex(current)}
+    });
+
+    // Active nav highlight on scroll
+    const navItems = document.querySelectorAll('.nav-link');
+    const sectionObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const id = entry.target.id;
+        const link = document.querySelector('.nav-link[data-target="'+id+'"]');
+        if(entry.isIntersecting){navItems.forEach(n=>n.classList.remove('active')); if(link) link.classList.add('active')}
+      });
+    },{threshold:0.5});
+    sections.forEach(s=>sectionObserver.observe(s));
+
+    // Progress bar
+    const progressBar=document.getElementById('progressBar');
+    window.addEventListener('scroll', ()=>{
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / (docHeight || 1)) * 100;
+      progressBar.style.width = scrolled + '%';
+    });
+
+    // Accessibility: ensure focusable sections when tabbing
+    sections.forEach(s=>s.setAttribute('tabindex','0'));
+
+    // Small UX: when clicking nav in mobile, close menu
+    navLinks.addEventListener('click', (e)=>{
+      if(e.target.classList.contains('nav-link') && window.innerWidth < 920){navLinks.style.display='none';hamburger.setAttribute('aria-expanded','false')}
+    });
+
+  </script>
+</body>
+</html>
