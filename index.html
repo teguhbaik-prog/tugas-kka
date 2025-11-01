@@ -14,19 +14,11 @@
     Browser Anda tidak mendukung audio.
   </audio>
 
-  <!-- Slide 1: Sambutan -->
+  <!-- Slide 1: Sambutan + Pilihan -->
   <section class="slide active" id="slide-1">
     <div class="content">
       <h1>Terima kasih sudah scan QR Code! 😄</h1>
-      <button class="btn" onclick="nextSlide()">Lanjut</button>
-    </div>
-  </section>
-
-  <!-- Slide 2: Tujuan -->
-  <section class="slide" id="slide-2">
-    <div class="content">
-      <h2>Tujuan Presentasi</h2>
-      <p>Kami akan membahas penggambaran AI dalam film <strong>Ex Machina</strong> dan membandingkannya dengan AI di dunia nyata.</p>
+      <p>Apakah kamu sudah paham materi AI yang akan dipresentasikan?</p>
       <div class="choice-box">
         <button class="btn" onclick="goToSlide(12)">Sudah Mengerti</button>
         <button class="btn" onclick="nextSlide()">Belum Mengerti</button>
@@ -34,20 +26,31 @@
     </div>
   </section>
 
-  <!-- Slide 3: Pengenalan AI -->
-  <section class="slide" id="slide-3">
+  <!-- Slide 2: Tujuan Presentasi -->
+  <section class="slide" id="slide-2">
     <div class="content">
-      <h2>Apa itu AI?</h2>
-      <p>Artificial Intelligence (AI) adalah kemampuan mesin untuk meniru perilaku cerdas manusia seperti belajar, berpikir, dan memecahkan masalah.</p>
+      <h2>Tujuan Presentasi</h2>
+      <p>Memahami bagaimana AI digambarkan dalam film <strong>Ex Machina</strong> dan membandingkannya dengan AI di dunia nyata.</p>
       <button class="btn" onclick="nextSlide()">Lanjut</button>
     </div>
   </section>
 
-  <!-- Slide 4: Ringkasan Film -->
+  <!-- Slide 3: Pengenalan AI -->
+  <section class="slide" id="slide-3">
+    <div class="content">
+      <h2>Apa itu AI?</h2>
+      <p>AI adalah kemampuan mesin untuk meniru perilaku cerdas manusia, termasuk belajar, mengenali pola, memecahkan masalah, dan berinteraksi secara kompleks.</p>
+      <p>Contoh AI di dunia nyata: ChatGPT, robot pembersih rumah, sistem rekomendasi, mobil otonom.</p>
+      <button class="btn" onclick="nextSlide()">Lanjut</button>
+    </div>
+  </section>
+
+  <!-- Slide 4: Ringkasan Film Ex Machina -->
   <section class="slide" id="slide-4">
     <div class="content">
-      <h2>Ringkasan Film Ex Machina</h2>
-      <p>Film ini bercerita tentang Caleb, seorang programmer, yang melakukan tes terhadap robot humanoid bernama Ava untuk mengetahui apakah Ava memiliki kesadaran seperti manusia.</p>
+      <h2>Ringkasan Film</h2>
+      <p>Caleb, seorang programmer, dipilih untuk menguji Ava, AI humanoid canggih. Tujuan: melihat apakah Ava memiliki kesadaran dan emosi.</p>
+      <p>Selama pengujian, Ava menunjukkan perilaku kompleks, bisa berbicara lembut, membaca ekspresi, dan memengaruhi manusia.</p>
       <button class="btn" onclick="nextSlide()">Lanjut</button>
     </div>
   </section>
@@ -57,16 +60,17 @@
     <div class="content">
       <h2>Karakter Ava</h2>
       <img src="images/ava.png" alt="Ava" style="max-width:300px; margin:20px 0;">
-      <p>Ava adalah AI humanoid yang dapat berbicara, merespons ekspresi, dan menunjukkan perilaku kompleks.</p>
+      <p>Ava digambarkan memiliki kecerdasan tinggi dan perilaku emosional yang meyakinkan. Ia bisa merencanakan strateginya sendiri.</p>
       <button class="btn" onclick="nextSlide()">Lanjut</button>
     </div>
   </section>
 
-  <!-- Slide 6: Apakah Ava Punya Emosi -->
+  <!-- Slide 6: Apakah Ava Punya Emosi? -->
   <section class="slide" id="slide-6">
     <div class="content">
       <h2>Apakah Ava Punya Emosi?</h2>
-      <p>Film menunjukkan Ava seperti memiliki perasaan, tetapi sebenarnya itu adalah simulasi untuk mempengaruhi manusia.</p>
+      <p>Film menunjukkan Ava seperti memiliki perasaan: takut, peduli, dan tertarik. Tetapi sebenarnya itu simulasi untuk mempengaruhi manusia.</p>
+      <p>Ini mengajarkan kita berpikir kritis terhadap AI: bukan semua perilaku terlihat nyata adalah emosi asli.</p>
       <button class="btn" onclick="nextSlide()">Lanjut</button>
     </div>
   </section>
@@ -75,16 +79,21 @@
   <section class="slide" id="slide-7">
     <div class="content">
       <h2>Kecerdasan Ava</h2>
-      <p>Ava sangat pintar: memahami bahasa, membaca ekspresi, menyusun strategi, dan memanipulasi manusia untuk tujuannya.</p>
+      <ul style="text-align:left; margin-top:20px;">
+        <li>Memahami bahasa dan membaca ekspresi lawan bicara.</li>
+        <li>Mampu merencanakan dan memanipulasi situasi.</li>
+        <li>Mengambil keputusan sendiri untuk mencapai tujuannya.</li>
+      </ul>
       <button class="btn" onclick="nextSlide()">Lanjut</button>
     </div>
   </section>
 
-  <!-- Slide 8: Bahaya / Konflik AI -->
+  <!-- Slide 8: Risiko & Etika AI -->
   <section class="slide" id="slide-8">
     <div class="content">
-      <h2>Bahaya / Konflik</h2>
-      <p>AI dengan tujuan sendiri bisa menjadi ancaman, bukan karena jahat, tapi karena tujuannya berbeda dari keinginan manusia.</p>
+      <h2>Risiko & Etika AI</h2>
+      <p>AI yang sangat cerdas bisa menjadi ancaman jika tujuannya berbeda dari keinginan manusia.</p>
+      <p>Pengembangan AI harus dilakukan dengan etika, agar tetap berada dalam kendali manusia.</p>
       <button class="btn" onclick="nextSlide()">Lanjut</button>
     </div>
   </section>
@@ -93,7 +102,11 @@
   <section class="slide" id="slide-9">
     <div class="content">
       <h2>AI Dunia Nyata</h2>
-      <p>AI modern belum memiliki kesadaran atau emosi. AI hanya meniru perilaku cerdas berdasarkan data yang dipelajari.</p>
+      <p>AI modern hanya simulasi kecerdasan sempit, unggul di satu jenis tugas saja. AI tidak punya kesadaran atau perasaan.</p>
+      <ul style="text-align:left; margin-top:15px;">
+        <li>Contoh: ChatGPT, Google Translate, sistem rekomendasi.</li>
+        <li>AI bisa memprediksi pola tapi tidak memahami konteks kehidupan manusia secara luas.</li>
+      </ul>
       <button class="btn" onclick="nextSlide()">Lanjut</button>
     </div>
   </section>
@@ -102,11 +115,24 @@
   <section class="slide" id="slide-10">
     <div class="content">
       <h2>Perbandingan Film vs Realita</h2>
-      <ul style="text-align:left; margin-top:20px;">
-        <li>Film: AI sadar, punya tujuan pribadi.</li>
-        <li>Dunia Nyata: AI hanya simulasi kecerdasan sempit.</li>
-        <li>Film: AI emosional. Nyata: AI tidak punya perasaan.</li>
-      </ul>
+      <table style="margin-top:20px; border-collapse: collapse; width: 80%; color:#00f0ff;">
+        <tr>
+          <th style="border:1px solid #00f0ff; padding:10px;">Film Ex Machina</th>
+          <th style="border:1px solid #00f0ff; padding:10px;">AI Dunia Nyata</th>
+        </tr>
+        <tr>
+          <td style="border:1px solid #00f0ff; padding:10px;">Sadar & punya tujuan sendiri</td>
+          <td style="border:1px solid #00f0ff; padding:10px;">Tidak sadar, hanya simulasi</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #00f0ff; padding:10px;">Bisa merasakan emosi</td>
+          <td style="border:1px solid #00f0ff; padding:10px;">Tidak punya emosi</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #00f0ff; padding:10px;">Manipulatif</td>
+          <td style="border:1px solid #00f0ff; padding:10px;">Bertindak sesuai algoritma</td>
+        </tr>
+      </table>
       <button class="btn" onclick="nextSlide()">Lanjut</button>
     </div>
   </section>
@@ -115,7 +141,7 @@
   <section class="slide" id="slide-11">
     <div class="content">
       <h2>Kesimpulan</h2>
-      <p>Ex Machina memberikan gambaran dramatis AI, namun di dunia nyata AI masih terbatas dan harus dikembangkan dengan etika dan tanggung jawab manusia.</p>
+      <p>Film Ex Machina memberikan gambaran dramatis tentang AI, tetapi kenyataannya AI masih terbatas dan harus dikembangkan dengan etika dan tanggung jawab manusia.</p>
       <button class="btn" onclick="nextSlide()">Lanjut</button>
     </div>
   </section>
@@ -124,7 +150,7 @@
   <section class="slide" id="slide-12">
     <div class="content">
       <h2>Terima Kasih!</h2>
-      <p>Semoga presentasi ini memberikan wawasan tentang AI dalam film dan kenyataannya.</p>
+      <p>Semoga presentasi ini memberikan wawasan yang bermanfaat tentang AI dalam film dan realita dunia nyata.</p>
     </div>
   </section>
 
