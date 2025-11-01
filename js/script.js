@@ -42,3 +42,18 @@ document.addEventListener('keydown', (e) => {
 // Optional: background music kontrol
 const bgMusic = document.getElementById('bg-music');
 bgMusic.volume = 0.3; // volume rendah biar nggak mengganggu
+// Ambil element audio
+const bgMusic = document.getElementById('bg-music');
+
+// Atur volume rendah agar tidak mengganggu
+bgMusic.volume = 0.3;
+
+// Bisa juga kontrol pause/play dengan tombol jika ingin
+function toggleMusic() {
+    if(bgMusic.paused) {
+        bgMusic.play();
+    } else {
+        bgMusic.pause();
+    }
+}
+
