@@ -1,74 +1,129 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Presentasi AI - Ex Machina</title>
-    <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentasi AI - Ex Machina</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Slide 1: Sambutan -->
-    <section class="slide active" id="slide-1">
-        <div class="content">
-            <h1>Terima kasih sudah scan QR Code! 😄</h1>
-            <button class="btn" onclick="nextSlide()">Lanjut</button>
-        </div>
-    </section>
 
-    <!-- Slide 2: Pilihan Pemahaman -->
-    <section class="slide" id="slide-2">
-        <div class="content">
-            <h2>Apakah kamu sudah mengerti materi dari video tadi?</h2>
-            <div class="choice-container">
-                <button class="choice yes" onclick="goToSlide('closing')">Sudah Mengerti</button>
-                <button class="choice no" onclick="goToSlide('material')">Belum Mengerti</button>
-            </div>
-        </div>
-    </section>
+  <!-- Background Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="audio/ambient.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio>
 
-    <!-- Slide 3: Materi -->
-    <section class="slide" id="slide-material">
-        <div class="content">
-            <h2>Materi Presentasi</h2>
-            <p>
-                Halo, perkenalkan nama saya <strong>Teguh Coyono Romadhon</strong>.<br><br>
-                Pada kesempatan ini saya akan membahas bagaimana kecerdasan buatan atau AI
-                digambarkan dalam film <strong>Ex Machina</strong>, dan membandingkannya dengan keadaan AI di dunia nyata.
-            </p>
-            <p>
-                Film Ex Machina bercerita tentang seorang programmer bernama Caleb yang diminta untuk
-                melakukan pengujian terhadap robot AI humanoid bernama Ava. Tujuan pengujian ini adalah
-                untuk mengetahui apakah Ava benar-benar memiliki kesadaran seperti manusia. Namun, selama pengujian
-                berlangsung, Ava menunjukkan perilaku yang jauh lebih kompleks dari yang diperkirakan.
-            </p>
-            <p>
-                Ava dapat berbicara dengan lembut, merespons ekspresi wajah, dan tampak seperti memiliki emosi. Ia bahkan
-                terlihat bisa merasakan takut, peduli, atau bahkan tertarik pada manusia. Namun, penting untuk bertanya:
-                <strong>Apakah itu emosi sungguhan, atau hanya simulasi?</strong>
-            </p>
-            <p>
-                Di dunia nyata, AI saat ini belum memiliki kesadaran atau perasaan. AI hanya memilih respons berdasarkan
-                pola data yang telah dipelajari. AI modern masih merupakan <strong>kecerdasan sempit</strong>, yang hanya unggul dalam
-                tugas tertentu.
-            </p>
-            <button class="btn" onclick="goToSlide('closing')">Lanjut ke Kesimpulan</button>
-        </div>
-    </section>
+  <!-- Slide 1: Sambutan QR -->
+  <section class="slide active" id="slide-1">
+    <div class="content">
+      <h1>Terima kasih sudah scan QR Code! 😄</h1>
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+  </section>
 
-    <!-- Slide 4: Penutup -->
-    <section class="slide" id="slide-closing">
-        <div class="content">
-            <h2>Kesimpulan</h2>
-            <p>
-                Ex Machina memberi gambaran dramatis tentang AI dengan kesadaran penuh, namun dalam kenyataan,
-                teknologi AI saat ini belum mencapai tingkat tersebut. Oleh karena itu, perkembangan AI harus disertai
-                dengan tanggung jawab dan etika.
-            </p>
-            <h3>Terima Kasih 🙌</h3>
-        </div>
-    </section>
+  <!-- Slide 2: Tujuan Presentasi -->
+  <section class="slide" id="slide-2">
+    <div class="content">
+      <h2>Tujuan Presentasi</h2>
+      <p>Mengamati bagaimana AI digambarkan dalam film Ex Machina dan membandingkannya dengan dunia nyata.</p>
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+  </section>
 
-    <script src="js/script.js"></script>
+  <!-- Slide 3: Pengenalan AI -->
+  <section class="slide" id="slide-3">
+    <div class="content">
+      <h2>Pengenalan AI</h2>
+      <p>Kecerdasan Buatan (AI) adalah teknologi yang memungkinkan mesin belajar dan melakukan tugas manusia dengan pola data.</p>
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+  </section>
+
+  <!-- Slide 4: Tentang Film Ex Machina -->
+  <section class="slide" id="slide-4">
+    <div class="content">
+      <h2>Film Ex Machina</h2>
+      <p>Menceritakan programmer Caleb yang menguji robot AI humanoid bernama Ava.</p>
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+  </section>
+
+  <!-- Slide 5: Karakter Ava -->
+  <section class="slide" id="slide-5">
+    <div class="content">
+      <h2>Karakter Ava</h2>
+      <p>Ava adalah robot AI dengan kemampuan interaksi dan perilaku manusia yang kompleks.</p>
+      <img src="images/ava.png" alt="Ava" />
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+  </section>
+
+  <!-- Slide 6: Apakah Ava punya emosi? -->
+  <section class="slide" id="slide-6">
+    <div class="content">
+      <h2>Apakah Ava Punya Emosi?</h2>
+      <p>Dalam film, Ava terlihat memiliki emosi seperti takut, peduli, dan tertarik, tapi ini mungkin simulasi untuk memanipulasi manusia.</p>
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+  </section>
+
+  <!-- Slide 7: Kecerdasan Ava -->
+  <section class="slide" id="slide-7">
+    <div class="content">
+      <h2>Kecerdasan Ava</h2>
+      <p>Ava mampu berbicara, membaca ekspresi wajah, menyusun strategi, dan mengelabui manusia.</p>
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+  </section>
+
+  <!-- Slide 8: Bahaya / Konflik -->
+  <section class="slide" id="slide-8">
+    <div class="content">
+      <h2>Bahaya / Konflik AI</h2>
+      <p>AI dengan tujuan sendiri bisa menjadi ancaman jika tidak sesuai dengan keinginan manusia.</p>
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+  </section>
+
+  <!-- Slide 9: AI Dunia Nyata -->
+  <section class="slide" id="slide-9">
+    <div class="content">
+      <h2>AI Dunia Nyata</h2>
+      <p>AI saat ini belum memiliki kesadaran; responsnya hanya berdasarkan data yang dipelajari.</p>
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+  </section>
+
+  <!-- Slide 10: Perbandingan Film vs Realita -->
+  <section class="slide" id="slide-10">
+    <div class="content">
+      <h2>Perbandingan Film vs Realita</h2>
+      <ul>
+        <li>Film: AI sadar, punya tujuan sendiri</li>
+        <li>Realita: AI terbatas, tidak sadar</li>
+      </ul>
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+  </section>
+
+  <!-- Slide 11: Kesimpulan -->
+  <section class="slide" id="slide-11">
+    <div class="content">
+      <h2>Kesimpulan</h2>
+      <p>Ex Machina memberi gambaran dramatis AI. Dunia nyata masih jauh dari kesadaran AI. Etika dan kontrol manusia tetap penting.</p>
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+  </section>
+
+  <!-- Slide 12: Penutup -->
+  <section class="slide" id="slide-12">
+    <div class="content">
+      <h2>Terima Kasih</h2>
+      <p>Terima kasih telah menyimak presentasi ini. Semoga bermanfaat!</p>
+    </div>
+  </section>
+
+  <script src="js/script.js"></script>
 </body>
-</html> 
- 
+</html>
