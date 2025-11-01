@@ -1,90 +1,91 @@
-/* style.css - Dark Futuristic Theme */
-
-/* Reset */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Orbitron', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+/* BODY */
 body {
-  background-color: #0b0d13;
+  background: #080808;
   color: #fff;
   overflow: hidden;
-  height: 100vh;
 }
 
-/* Slide Container */
+/* SLIDE CONTAINER */
 .slide {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 40px;
   text-align: center;
-  background-color: #0b0d13;
-  transition: transform 0.6s ease, opacity 0.6s ease;
+
   opacity: 0;
   transform: translateX(100%);
+  transition: 0.6s ease;
 }
 
 .slide.active {
   opacity: 1;
-  transform: translateX(0%);
+  transform: translateX(0);
 }
 
-/* Content inside slides */
-.slide .content {
-  max-width: 800px;
-  padding: 20px;
+/* TITLE */
+.slide h1, .slide h2 {
+  text-shadow: 0 0 15px #00eaff, 0 0 30px #0088ff;
 }
 
-.slide h1 {
-  font-size: 3rem;
-  color: #00f0ff;
-  text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
-  margin-bottom: 20px;
-}
-
-.slide p {
-  font-size: 1.2rem;
-  color: #ffffff;
-  line-height: 1.5;
-}
-
-/* Buttons */
-button {
-  margin: 10px;
-  padding: 12px 30px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #0b0d13;
-  background-color: #00f0ff;
-  border: none;
-  border-radius: 10px;
+/* BUTTON */
+.btn {
+  margin-top: 25px;
+  padding: 12px 26px;
+  border: 2px solid #00eaff;
+  background: transparent;
+  color: #00eaff;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s ease;
-  text-shadow: none;
+  font-size: 17px;
+  letter-spacing: 1px;
+  transition: 0.35s;
 }
 
-button:hover {
-  background-color: #00c7d8;
-  box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+.btn:hover {
+  background: #00eaff;
+  color: #000;
+  box-shadow: 0 0 20px #00eaff;
 }
 
-/* Responsive */
+/* TWO CHOICE BUTTONS */
+.choice-box {
+  display: flex;
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.choice-box .btn {
+  width: 170px;
+}
+
+/* CONTENT SLIDE TEXT */
+.content {
+  max-width: 830px;
+  line-height: 1.65;
+  font-size: 20px;
+}
+
+/* RESPONSIVE */
 @media screen and (max-width: 768px) {
-  .slide h1 {
-    font-size: 2rem;
+  .content {
+    font-size: 17px;
   }
-  .slide p {
-    font-size: 1rem;
-  }
-  button {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+  .choice-box {
+    flex-direction: column;
   }
 }
