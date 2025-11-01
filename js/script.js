@@ -2,6 +2,13 @@ document.addEventListener("DOMContentLoaded", function() {
   let currentSlide = 1;
   const totalSlides = 16;
 
+  var audioplaying = false;
+  function music(){
+    var audio = document;getElementbyId("bgMusic");
+    if (laudioplaying) audio.play();
+    else audio.pause();
+    audioplaying = laudioPlaying
+    
   const slides = document.querySelectorAll(".slide");
   const bgMusic = document.createElement("audio");
   bgMusic.src = "audio/bergema sampai selamanya.mp3";
