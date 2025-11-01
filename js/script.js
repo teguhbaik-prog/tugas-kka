@@ -2,56 +2,60 @@
 
 let currentSlide = 1;
 const totalSlides = 16;
-
 const slides = document.querySelectorAll('.slide');
-const bgMusic = document.createElement('audio');
-bgMusic.src = 'audio/bergema sampai selamanya.mp3';
+
+// Background music
+const bgMusic = new Audio('audio/bergema sampai selamanya.mp3');
 bgMusic.loop = true;
 bgMusic.autoplay = true;
-bgMusic.volume = 0.3; // Bisa diatur sesuai kenyamanan
-document.body.appendChild(bgMusic);
+bgMusic.volume = 0.3;
+bgMusic.play().catch(e => console.log("Autoplay prevented:", e));
 
-// Fungsi menampilkan slide tertentu
-function showSlide(n) {
-  slides.forEach((slide, index) => {
-    if(index === n - 1){
-      slide.classList.add('active');
-    } else {
-      slide.classList.remove('active');
+// Tampilkan slide tertentu
+function showSlide(n){
+    slides.forEach((slide, index) => {
+        if(index === n - 1){
+            slide.classList.add('active');
+            slide.classList.add('fade-in');
+        } else {
+            slide.classList.remove('active');
+            slide.classList.remove('fade-in');
+        }
+    });
+    currentSlide = n;
+}
+
+// Tombol next
+function nextSlide(){
+    if(currentSlide < totalSlides){
+        showSlide(currentSlide + 1);
     }
-  });
-  currentSlide = n;
 }
 
-// Tombol Next Slide biasa
-function nextSlide() {
-  if(currentSlide < totalSlides){
-    showSlide(currentSlide + 1);
-  }
+// Tombol Sudah Mengerti: langsung ke slide 16
+function goToSlide(n){
+    if(n >= 1 && n <= totalSlides){
+        showSlide(n);
+    }
 }
 
-// Tombol Sudah Mengerti langsung ke slide 16
-function goToSlide(n) {
-  if(n >= 1 && n <= totalSlides){
-    showSlide(n);
-  }
+// Tombol prev (opsional)
+function prevSlide(){
+    if(currentSlide > 1){
+        showSlide(currentSlide - 1);
+    }
 }
 
-// Tombol Back Slide (opsional, bisa ditambahkan jika mau)
-function prevSlide() {
-  if(currentSlide > 1){
-    showSlide(currentSlide - 1);
-  }
-}
-
-// Keyboard navigasi (opsional)
+// Keyboard navigasi
 document.addEventListener('keydown', function(e){
-  if(e.key === "ArrowRight"){
-    nextSlide();
-  } else if(e.key === "ArrowLeft"){
-    prevSlide();
-  }
+    if(e.key === "ArrowRight"){
+        nextSlide();
+    } else if(e.key === "ArrowLeft"){
+        prevSlide();
+    }
 });
 
 // Inisialisasi slide pertama
-showSlide(1);
+document.addEventListener('DOMContentLoaded', function(){
+    showSlide(1);
+});
