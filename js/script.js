@@ -1,60 +1,54 @@
-// ===========================
-// SCRIPT SLIDE NAVIGASI
-// ===========================
-
 // Ambil semua slide
 const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
 
-// Tampilkan slide berdasarkan index
+// Tampilkan slide tertentu
 function showSlide(index) {
   slides.forEach((slide, i) => {
     slide.classList.remove('active');
-    if (i === index) slide.classList.add('active');
+    if (i === index) {
+      slide.classList.add('active');
+    }
   });
   currentSlide = index;
 }
 
 // Next slide
 function nextSlide() {
-  let nextIndex = currentSlide + 1;
-  if (nextIndex >= slides.length) nextIndex = slides.length - 1;
-  showSlide(nextIndex);
+  if (currentSlide < slides.length - 1) {
+    showSlide(currentSlide + 1);
+  }
 }
 
-// Previous slide (jika mau tombol prev ditambahkan)
-function prevSlide() {
-  let prevIndex = currentSlide - 1;
-  if (prevIndex < 0) prevIndex = 0;
-  showSlide(prevIndex);
-}
+// Previous slide (opsional, bisa ditambahkan tombol kembali)
+// function prevSlide() {
+//   if (currentSlide > 0) {
+//     showSlide(currentSlide - 1);
+//   }
+// }
 
-// Tombol "Sudah Mengerti" langsung ke slide penutup
+// Button "Sudah Mengerti" langsung ke slide 16 (penutup)
 function goToSlide(index) {
-  if (index >= slides.length) index = slides.length - 1;
-  showSlide(index);
+  if (index >= 0 && index < slides.length) {
+    showSlide(index);
+  }
 }
 
-// ===========================
-// Optional: Keyboard Navigation
-// ===========================
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight') nextSlide();
-  if (e.key === 'ArrowLeft') prevSlide();
+// Floating icons random movement
+const icons = document.querySelectorAll('.floating-icon');
+icons.forEach(icon => {
+  const delay = parseFloat(icon.style.animationDelay) || 0;
+  icon.style.animationDelay = `${delay}s`;
 });
 
-// ===========================
-// Optional: Auto Floating Icon Rotation (CSS handles animation)
-// ===========================
-// Floating icons sudah di CSS, jadi JS tidak perlu mengubah animasi
-
-// ===========================
-// Optional: Background Music Control
-// ===========================
+// Background music kontrol (opsional)
 const bgMusic = document.getElementById('bg-music');
-
-// Bisa tambahkan toggle musik
 function toggleMusic() {
-  if (bgMusic.paused) bgMusic.play();
-  else bgMusic.pause();
+  if (bgMusic.paused) {
+    bgMusic.play();
+  } else {
+    bgMusic.pause();
+  }
 }
+
+// Tombol play/pause musik (bisa ditambahkan di HTML)
