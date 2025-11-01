@@ -1,4 +1,4 @@
-// script.js - JavaScript interaktif untuk presentasi AI
+// script.js - JavaScript Interaktif Presentasi AI
 
 let currentSlide = 1;
 const totalSlides = 12;
@@ -11,48 +11,44 @@ function showSlide(n) {
     slide.style.opacity = (i === n - 1) ? '1' : '0';
     slide.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
   });
+  currentSlide = n;
 }
 
-// Next slide
+// Next Slide
 function nextSlide() {
   if (currentSlide < totalSlides) {
-    currentSlide++;
-    showSlide(currentSlide);
+    showSlide(currentSlide + 1);
   }
 }
 
-// Previous slide
+// Previous Slide (opsional)
 function prevSlide() {
   if (currentSlide > 1) {
-    currentSlide--;
-    showSlide(currentSlide);
+    showSlide(currentSlide - 1);
   }
 }
 
-// Go to specific slide
+// Lompat ke slide tertentu
 function goToSlide(n) {
-  if (n >= 1 && n <= totalSlides) {
-    currentSlide = n;
+  if (n >=1 && n <= totalSlides) {
     showSlide(n);
   }
 }
 
-// Background music control
-const bgMusic = document.getElementById('bg-music');
-bgMusic.volume = 0.3; // atur volume 30%
-
-// Tombol interaksi contoh
-// Tombol "Sudah Mengerti" lompat ke slide penutup (slide 12)
-function sudahMengerti() {
-  goToSlide(12);
-}
-
-// Tombol "Belum Mengerti" lanjut materi (slide 3)
-function belumMengerti() {
-  goToSlide(3);
-}
-
-// Inisialisasi tampilan pertama
-document.addEventListener('DOMContentLoaded', () => {
-  showSlide(currentSlide);
+// Keyboard navigation (optional)
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'ArrowRight') nextSlide();
+  if(e.key === 'ArrowLeft') prevSlide();
 });
+
+// Auto play background music
+document.addEventListener('DOMContentLoaded', () => {
+  const music = document.getElementById('bg-music');
+  if(music){
+    music.volume = 0.2;
+    music.play().catch(err => console.log('Audio autoplay failed')); 
+  }
+});
+
+// Inisialisasi slide pertama
+showSlide(currentSlide);
