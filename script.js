@@ -3,9 +3,10 @@
 let currentSlide = 1;
 const totalSlides = 12;
 
-// Fungsi untuk menampilkan slide sesuai index
+// Tampilkan slide sesuai index
 function showSlide(n) {
-  document.querySelectorAll('.slide').forEach((slide, i) => {
+  const slides = document.querySelectorAll('.slide');
+  slides.forEach((slide, i) => {
     slide.style.transform = `translateX(${(i - (n - 1)) * 100}%)`;
     slide.style.opacity = (i === n - 1) ? '1' : '0';
     slide.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
@@ -28,28 +29,30 @@ function prevSlide() {
   }
 }
 
-// Lompat ke slide tertentu
+// Go to specific slide
 function goToSlide(n) {
-  if(n >= 1 && n <= totalSlides) {
+  if (n >= 1 && n <= totalSlides) {
     currentSlide = n;
-    showSlide(currentSlide);
+    showSlide(n);
   }
 }
 
-// Tombol Sudah Mengerti / Tidak Mengerti contoh:
-function alreadyUnderstood() {
-  goToSlide(12); // Lompat ke slide penutup
+// Background music control
+const bgMusic = document.getElementById('bg-music');
+bgMusic.volume = 0.3; // atur volume 30%
+
+// Tombol interaksi contoh
+// Tombol "Sudah Mengerti" lompat ke slide penutup (slide 12)
+function sudahMengerti() {
+  goToSlide(12);
 }
 
-function notUnderstood() {
-  goToSlide(3); // Lompat ke slide materi awal
+// Tombol "Belum Mengerti" lanjut materi (slide 3)
+function belumMengerti() {
+  goToSlide(3);
 }
 
-// Autoplay background music
-window.addEventListener('load', () => {
-  const music = document.getElementById('bg-music');
-  if (music) music.play();
+// Inisialisasi tampilan pertama
+document.addEventListener('DOMContentLoaded', () => {
+  showSlide(currentSlide);
 });
-
-// Inisialisasi slide pertama
-showSlide(currentSlide);
