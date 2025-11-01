@@ -1,19 +1,21 @@
-/* Dark Futuristic Style */
+/* style.css - Dark Futuristic Theme */
+
+/* Reset dan basic */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Orbitron', sans-serif;
 }
+
 body {
-  background: #0a0a0f;
+  background-color: #0b0d13;
   color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   overflow: hidden;
+  height: 100vh;
 }
+
+/* Slide container */
 .slide {
   position: absolute;
   width: 100%;
@@ -22,26 +24,61 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transform: translateX(100%);
   padding: 20px;
 }
 .slide.active {
   opacity: 1;
+  transform: translateX(0);
 }
+
+/* Content */
+.slide .content {
+  max-width: 900px;
+}
+.slide h1 {
+  font-size: 3rem;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  margin-bottom: 20px;
+}
+.slide p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Buttons */
 button {
-  margin-top: 20px;
-  padding: 12px 28px;
-  background: #111827;
-  border: 1px solid #4f46e5;
-  color: #e0e7ff;
+  padding: 15px 30px;
+  margin: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
-  font-size: 16px;
+  background-color: #00ffff;
+  color: #0b0d13;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  transition: all 0.3s ease;
 }
 button:hover {
-  background: #4f46e5;
-  color: #ffffff;
-  box-shadow: 0 0 14px #4f46e5;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slide h1 {
+    font-size: 2rem;
+  }
+  .slide p {
+    font-size: 1rem;
+  }
+  button {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
 }
