@@ -1,35 +1,57 @@
-// Ambil semua slide
+// script.js
+
+let currentSlide = 1;
+const totalSlides = 16;
+
 const slides = document.querySelectorAll('.slide');
-let currentSlide = 0;
-
-// Tombol navigasi "next"
-function nextSlide() {
-  slides[currentSlide].classList.remove('active');
-  currentSlide++;
-  if (currentSlide >= slides.length) {
-    currentSlide = slides.length - 1; // tetap di slide terakhir
-  }
-  slides[currentSlide].classList.add('active');
-}
-
-// Tombol "Sudah Mengerti" -> langsung ke slide 16
-function goToSlide(slideNumber) {
-  slides[currentSlide].classList.remove('active');
-  currentSlide = slideNumber - 1;
-  slides[currentSlide].classList.add('active');
-}
-
-// Background music autoplay
 const bgMusic = document.createElement('audio');
 bgMusic.src = 'audio/bergema sampai selamanya.mp3';
-bgMusic.autoplay = true;
 bgMusic.loop = true;
-bgMusic.volume = 0.3;
+bgMusic.autoplay = true;
+bgMusic.volume = 0.3; // Bisa diatur sesuai kenyamanan
 document.body.appendChild(bgMusic);
 
-// Optional: klik slide untuk lanjut (alternatif)
-slides.forEach(slide => {
-  slide.addEventListener('click', () => {
-    nextSlide();
+// Fungsi menampilkan slide tertentu
+function showSlide(n) {
+  slides.forEach((slide, index) => {
+    if(index === n - 1){
+      slide.classList.add('active');
+    } else {
+      slide.classList.remove('active');
+    }
   });
+  currentSlide = n;
+}
+
+// Tombol Next Slide biasa
+function nextSlide() {
+  if(currentSlide < totalSlides){
+    showSlide(currentSlide + 1);
+  }
+}
+
+// Tombol Sudah Mengerti langsung ke slide 16
+function goToSlide(n) {
+  if(n >= 1 && n <= totalSlides){
+    showSlide(n);
+  }
+}
+
+// Tombol Back Slide (opsional, bisa ditambahkan jika mau)
+function prevSlide() {
+  if(currentSlide > 1){
+    showSlide(currentSlide - 1);
+  }
+}
+
+// Keyboard navigasi (opsional)
+document.addEventListener('keydown', function(e){
+  if(e.key === "ArrowRight"){
+    nextSlide();
+  } else if(e.key === "ArrowLeft"){
+    prevSlide();
+  }
 });
+
+// Inisialisasi slide pertama
+showSlide(1);
