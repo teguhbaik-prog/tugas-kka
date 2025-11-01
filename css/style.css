@@ -1,4 +1,4 @@
-/* RESET */
+/* RESET & FONT */
 * {
   margin: 0;
   padding: 0;
@@ -7,13 +7,14 @@
 }
 
 body {
-  background-color: #0b0d13;
-  color: #ffffff;
-  overflow: hidden;
+  background: linear-gradient(135deg, #0b0d13 0%, #1a1c29 100%);
+  color: #fff;
+  overflow-x: hidden;
+  overflow-y: hidden;
   height: 100vh;
 }
 
-/* SLIDE */
+/* SLIDE BASICS */
 .slide {
   position: absolute;
   width: 100%;
@@ -26,13 +27,16 @@ body {
   padding: 20px;
   opacity: 0;
   transform: translateX(100%);
-  transition: all 0.6s ease;
+  transition: all 0.8s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
 
 .slide.active {
   opacity: 1;
   transform: translateX(0);
-  animation: slideIn 0.6s ease forwards;
+  animation: slideFade 0.8s ease forwards;
 }
 
 /* ANIMASI TEKS */
@@ -45,10 +49,25 @@ body {
   animation: fadeInText 1s ease forwards;
 }
 
-/* SLIDE-IN HORIZONTAL */
-@keyframes slideIn {
-  from { transform: translateX(100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+/* SLIDE TRANSITION */
+@keyframes slideFade {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ICON FLOATING ANIM */
+@keyframes floatIcon {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(15deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.floating-icon {
+  position: absolute;
+  font-size: 2rem;
+  color: #00f0ff55;
+  animation: floatIcon 5s ease-in-out infinite;
+  pointer-events: none;
 }
 
 /* TOMBOL */
@@ -56,18 +75,18 @@ body {
   background: linear-gradient(90deg, #00eaff, #00bfff);
   color: #000;
   border: none;
-  padding: 15px 30px;
+  padding: 15px 35px;
   font-size: 1.2rem;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 0 0 15px #00f0ff, 0 0 30px #00f0ff;
   transition: all 0.3s ease;
   margin-top: 20px;
 }
 
 .btn:hover {
-  box-shadow: 0 0 25px #00f0ff, 0 0 50px #00f0ff;
-  transform: scale(1.05);
+  box-shadow: 0 0 30px #00f0ff, 0 0 60px #00f0ff;
+  transform: scale(1.1);
 }
 
 /* SLIDE 1: Tombol di bawah pertanyaan */
@@ -78,34 +97,59 @@ body {
   margin-top: 30px;
 }
 
-/* TABEL PERBANDINGAN */
+/* TABEL PERBANDINGAN FUTURISTIK */
 table.comparison {
   width: 80%;
   margin: 20px auto;
   border-collapse: collapse;
+  border: 2px solid #00f0ff;
   color: #00f0ff;
+  font-size: 1rem;
 }
 
 table.comparison th, table.comparison td {
   border: 1px solid #00f0ff;
-  padding: 10px;
+  padding: 15px;
+}
+
+table.comparison th {
+  background: rgba(0, 255, 255, 0.2);
 }
 
 /* GAMBAR SLIDE */
 .slide-img {
   max-width: 300px;
   margin: 20px 0;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #00f0ff;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #00f0ff;
+  animation: fadeInText 1.2s ease forwards;
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-  .btn {
-    padding: 12px 25px;
-    font-size: 1rem;
-  }
-  table.comparison {
-    width: 95%;
-  }
+@media (max-width: 1024px) {
+  .btn { padding: 12px 25px; font-size: 1rem; }
+  table.comparison { width: 90%; }
+  .slide-img { max-width: 250px; }
 }
+
+@media (max-width: 768px) {
+  .btn { padding: 10px 20px; font-size: 0.9rem; }
+  table.comparison { width: 95%; font-size: 0.9rem; }
+  .slide-img { max-width: 200px; }
+}
+
+/* SLIDE BACKGROUNDS (opsional bisa diganti per slide) */
+#slide-1 { background: linear-gradient(to bottom, #0b0d13, #0f1a2b); }
+#slide-2 { background: linear-gradient(to bottom, #0f1a2b, #141f3c); }
+#slide-3 { background: linear-gradient(to bottom, #141f3c, #182544); }
+#slide-4 { background: linear-gradient(to bottom, #182544, #1c2b58); }
+#slide-5 { background: linear-gradient(to bottom, #1c2b58, #20306b); }
+#slide-6 { background: linear-gradient(to bottom, #20306b, #24347f); }
+#slide-7 { background: linear-gradient(to bottom, #24347f, #283893); }
+#slide-8 { background: linear-gradient(to bottom, #283893, #2c3eaa); }
+#slide-9 { background: linear-gradient(to bottom, #2c3eaa, #3044bf); }
+#slide-10 { background: linear-gradient(to bottom, #3044bf, #3450d3); }
+#slide-11 { background: linear-gradient(to bottom, #3450d3, #3861e0); }
+#slide-12 { background: linear-gradient(to bottom, #3861e0, #3b72ee); }
+#slide-13 { background: linear-gradient(to bottom, #3b72ee, #3f83fb); }
+#slide-14 { background: linear-gradient(to bottom, #3f83fb, #44a0ff); }
