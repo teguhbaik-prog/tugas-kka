@@ -39,9 +39,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Optional: background music kontrol
-const bgMusic = document.getElementById('bg-music');
-bgMusic.volume = 0.3; // volume rendah biar nggak mengganggu
 // Ambil element audio
 const bgMusic = document.getElementById('bg-music');
 
@@ -56,4 +53,5 @@ function toggleMusic() {
         bgMusic.pause();
     }
 }
+
 
