@@ -1,6 +1,6 @@
-/* style.css - Dark Futuristic Theme */
+/* style.css - Dark Futuristic Theme for AI Presentation */
 
-/* Reset dan basic */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +15,7 @@ body {
   height: 100vh;
 }
 
-/* Slide container */
+/* Slides */
 .slide {
   position: absolute;
   width: 100%;
@@ -24,10 +24,9 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  transition: transform 0.8s ease, opacity 0.8s ease;
   opacity: 0;
   transform: translateX(100%);
-  padding: 20px;
 }
 .slide.active {
   opacity: 1;
@@ -37,48 +36,52 @@ body {
 /* Content */
 .slide .content {
   max-width: 900px;
+  padding: 20px;
 }
+
 .slide h1 {
-  font-size: 3rem;
+  font-size: 3em;
   color: #00ffff;
   text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
   margin-bottom: 20px;
 }
+
 .slide p {
-  font-size: 1.2rem;
+  font-size: 1.3em;
+  color: #ccccff;
   line-height: 1.6;
-  color: #ffffff;
 }
 
 /* Buttons */
 button {
   padding: 15px 30px;
-  margin: 15px;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
+  margin: 10px;
+  font-size: 1.2em;
+  color: #ffffff;
+  background-color: #1a1a2e;
+  border: 2px solid #00ffff;
   border-radius: 8px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+button:hover {
   background-color: #00ffff;
   color: #0b0d13;
-  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
-  transition: all 0.3s ease;
-}
-button:hover {
-  transform: scale(1.1);
   box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .slide h1 {
-    font-size: 2rem;
+    font-size: 2em;
   }
   .slide p {
-    font-size: 1rem;
+    font-size: 1em;
   }
   button {
-    padding: 12px 25px;
-    font-size: 0.9rem;
+    font-size: 1em;
+    padding: 12px 20px;
   }
 }
