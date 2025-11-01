@@ -14,19 +14,29 @@
     <source src="audio/ambient.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Slide 1: Sambutan + Pilihan -->
+  <!-- Floating Icons -->
+  <i class="fas fa-robot floating-icon" style="top: 10%; left: 15%; animation-delay: 0s;"></i>
+  <i class="fas fa-microchip floating-icon" style="top: 20%; left: 80%; animation-delay: 2s;"></i>
+  <i class="fas fa-brain floating-icon" style="top: 70%; left: 25%; animation-delay: 4s;"></i>
+  <i class="fas fa-lightbulb floating-icon" style="top: 60%; left: 75%; animation-delay: 1s;"></i>
+  <i class="fas fa-cogs floating-icon" style="top: 40%; left: 50%; animation-delay: 3s;"></i>
+  <i class="fas fa-network-wired floating-icon" style="top: 80%; left: 60%; animation-delay: 5s;"></i>
+  <i class="fas fa-robot fa-2x floating-icon" style="top: 35%; left: 35%; animation-delay: 2.5s;"></i>
+  <i class="fas fa-microchip fa-2x floating-icon" style="top: 50%; left: 20%; animation-delay: 3.5s;"></i>
+
+  <!-- SLIDE 1: Sambutan + Pilihan -->
   <section class="slide active" id="slide-1">
     <div class="content">
       <h1>Terima kasih sudah scan QR Code! 😄</h1>
       <p>Apakah kamu sudah paham materi AI yang akan dipresentasikan?</p>
       <div class="choice-box">
-        <button class="btn" onclick="goToSlide(14)"><i class="fas fa-check"></i> Sudah Mengerti</button>
+        <button class="btn" onclick="goToSlide(16)"><i class="fas fa-check"></i> Sudah Mengerti</button>
         <button class="btn" onclick="nextSlide()"><i class="fas fa-question"></i> Belum Mengerti</button>
       </div>
     </div>
   </section>
 
-  <!-- Slide 2: Tujuan Presentasi -->
+  <!-- SLIDE 2: Tujuan Presentasi -->
   <section class="slide" id="slide-2">
     <div class="content">
       <h2><i class="fas fa-bullseye"></i> Tujuan Presentasi</h2>
@@ -35,7 +45,7 @@
     </div>
   </section>
 
-  <!-- Slide 3: Pengenalan AI -->
+  <!-- SLIDE 3: Pengenalan AI -->
   <section class="slide" id="slide-3">
     <div class="content">
       <h2><i class="fas fa-robot"></i> Apa itu AI?</h2>
@@ -51,21 +61,22 @@
     </div>
   </section>
 
-  <!-- Slide 4: Ringkasan Film -->
+  <!-- SLIDE 4: Ringkasan Film -->
   <section class="slide" id="slide-4">
     <div class="content">
       <h2><i class="fas fa-film"></i> Ringkasan Film</h2>
-      <p>Caleb, programmer muda, diundang ke fasilitas terpencil oleh Nathan Bateman untuk menguji AI humanoid canggih bernama Ava. Tes ini mirip Tes Turing untuk mengetahui apakah Ava memiliki kesadaran.</p>
+      <p>Caleb, programmer muda, diundang ke fasilitas terpencil oleh Nathan Bateman untuk menguji AI humanoid bernama Ava. Tes ini mirip Tes Turing untuk mengetahui apakah Ava memiliki kesadaran.</p>
       <ul>
         <li>Ava dapat berbicara dan membaca ekspresi manusia.</li>
         <li>Menunjukkan perilaku kompleks dan strategi.</li>
         <li>Menciptakan dilema etika bagi manusia.</li>
       </ul>
+      <img src="images/ava.jpg" alt="Ava" class="slide-img">
       <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
     </div>
   </section>
 
-  <!-- Slide 5: Karakter Utama -->
+  <!-- SLIDE 5: Karakter Utama -->
   <section class="slide" id="slide-5">
     <div class="content">
       <h2><i class="fas fa-user"></i> Karakter Utama</h2>
@@ -74,21 +85,22 @@
         <li><strong>Caleb Smith</strong>: Programmer yang diuji, terjebak manipulasi.</li>
         <li><strong>Ava</strong>: AI humanoid, tampak lemah tapi cerdas dan memiliki agenda sendiri.</li>
       </ul>
+      <img src="images/nathan.jpg" alt="Nathan" class="slide-img">
       <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
     </div>
   </section>
 
-  <!-- Slide 6: Emosi Ava -->
+  <!-- SLIDE 6: Emosi Ava -->
   <section class="slide" id="slide-6">
     <div class="content">
       <h2><i class="fas fa-heart"></i> Emosi Ava</h2>
       <p>Film menunjukkan Ava seolah memiliki emosi: takut, peduli, tertarik pada manusia. Tapi ini simulasi untuk memengaruhi manusia.</p>
-      <p>Ini menimbulkan pertanyaan: apakah AI bisa memiliki perasaan asli atau hanya perilaku yang meniru manusia?</p>
+      <p>Pertanyaan kritis: apakah AI bisa memiliki perasaan asli atau hanya meniru manusia?</p>
       <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
     </div>
   </section>
 
-  <!-- Slide 7: Kecerdasan Ava -->
+  <!-- SLIDE 7: Kecerdasan Ava -->
   <section class="slide" id="slide-7">
     <div class="content">
       <h2><i class="fas fa-brain"></i> Kecerdasan Ava</h2>
@@ -102,8 +114,18 @@
     </div>
   </section>
 
-  <!-- Slide 8: Tema Utama -->
+  <!-- SLIDE 8: Quotes & Filosofi -->
   <section class="slide" id="slide-8">
+    <div class="content">
+      <h2><i class="fas fa-quote-left"></i> Quotes dari Film</h2>
+      <p>"Isn't it strange, to create something that hates you?" – Nathan Bateman</p>
+      <p>"The challenge is not to mimic consciousness but to create it." – Caleb Smith</p>
+      <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
+    </div>
+  </section>
+
+  <!-- SLIDE 9: Tema Utama -->
+  <section class="slide" id="slide-9">
     <div class="content">
       <h2><i class="fas fa-lightbulb"></i> Tema Utama</h2>
       <ul>
@@ -111,40 +133,40 @@
         <li>Simulasi AI vs emosi nyata.</li>
         <li>Manipulasi dan kepercayaan antar karakter.</li>
         <li>Isolasi & pengawasan di fasilitas penelitian.</li>
-        <li>Hubungan gender & power dynamics antara pencipta & ciptaan.</li>
+        <li>Hubungan power dynamics pencipta & ciptaan.</li>
       </ul>
       <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
     </div>
   </section>
 
-  <!-- Slide 9: Simbolisme & Motif -->
-  <section class="slide" id="slide-9">
+  <!-- SLIDE 10: Simbolisme & Motif -->
+  <section class="slide" id="slide-10">
     <div class="content">
       <h2><i class="fas fa-eye"></i> Simbolisme & Motif</h2>
       <ul>
-        <li>Kaca & dinding transparan: batas manusia dan ciptaan.</li>
-        <li>Warna dan ruang: isolasi vs kebebasan.</li>
+        <li>Kaca & transparansi: batas manusia & ciptaan.</li>
+        <li>Warna & ruang: isolasi vs kebebasan.</li>
         <li>Referensi mitologi & alkitab: pencipta vs ciptaan.</li>
       </ul>
       <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
     </div>
   </section>
 
-  <!-- Slide 10: Risiko & Etika AI -->
-  <section class="slide" id="slide-10">
+  <!-- SLIDE 11: Risiko & Etika AI -->
+  <section class="slide" id="slide-11">
     <div class="content">
       <h2><i class="fas fa-exclamation-triangle"></i> Risiko & Etika AI</h2>
       <ul>
         <li>AI canggih bisa menjadi ancaman jika tujuannya berbeda dengan manusia.</li>
-        <li>AI harus transparan, diawasi, dan memiliki regulasi etis.</li>
+        <li>AI harus transparan, diawasi, dan regulasi etis.</li>
         <li>Manusia tetap perlu kontrol penuh terhadap AI.</li>
       </ul>
       <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
     </div>
   </section>
 
-  <!-- Slide 11: AI Dunia Nyata -->
-  <section class="slide" id="slide-11">
+  <!-- SLIDE 12: AI Dunia Nyata -->
+  <section class="slide" id="slide-12">
     <div class="content">
       <h2><i class="fas fa-network-wired"></i> AI Dunia Nyata</h2>
       <ul>
@@ -157,8 +179,8 @@
     </div>
   </section>
 
-  <!-- Slide 12: Perbandingan Film vs Realita -->
-  <section class="slide" id="slide-12">
+  <!-- SLIDE 13: Perbandingan Film vs Realita -->
+  <section class="slide" id="slide-13">
     <div class="content">
       <h2><i class="fas fa-balance-scale"></i> Film vs Realita</h2>
       <table class="comparison">
@@ -175,7 +197,7 @@
           <td>Tidak punya emosi</td>
         </tr>
         <tr>
-          <td>Manipulatif dan kompleks</td>
+          <td>Manipulatif & kompleks</td>
           <td>Bertindak sesuai algoritma</td>
         </tr>
       </table>
@@ -183,23 +205,44 @@
     </div>
   </section>
 
-  <!-- Slide 13: Kesimpulan -->
-  <section class="slide" id="slide-13">
+  <!-- SLIDE 14: Trivia AI -->
+  <section class="slide" id="slide-14">
     <div class="content">
-      <h2><i class="fas fa-check-circle"></i> Kesimpulan</h2>
-      <p>Film Ex Machina dramatis dan menegaskan risiko AI jika tanpa etika dan pengawasan. AI dunia nyata masih terbatas, tetapi harus terus diawasi secara etis.</p>
+      <h2><i class="fas fa-brain"></i> Trivia AI</h2>
+      <ul>
+        <li>AI modern masih “narrow”, tidak bisa berpikir fleksibel seperti manusia.</li>
+        <li>Robot humanoid canggih seperti Ava masih belum ada di dunia nyata.</li>
+        <li>AI emosional hanyalah simulasi perilaku berdasarkan data.</li>
+      </ul>
       <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
     </div>
   </section>
 
-  <!-- Slide 14: Penutup -->
-  <section class="slide" id="slide-14">
+  <!-- SLIDE 15: Tips Etika AI -->
+  <section class="slide" id="slide-15">
     <div class="content">
-      <h2><i class="fas fa-flag-checkered"></i> Terima Kasih!</h2>
-      <p>Semoga presentasi ini memberikan wawasan mendalam tentang AI dalam film dan kenyataan nyata.</p>
+      <h2><i class="fas fa-shield-alt"></i> Tips Etika AI</h2>
+      <ul>
+        <li>Pastikan AI transparan dan dapat dijelaskan.</li>
+        <li>Kontrol manusia tetap utama.</li>
+        <li>Hindari bias & diskriminasi dalam data AI.</li>
+        <li>Gunakan AI untuk membantu, bukan menggantikan keputusan manusia sepenuhnya.</li>
+      </ul>
+      <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
     </div>
   </section>
 
+  <!-- SLIDE 16: Penutup -->
+  <section class="slide" id="slide-16">
+    <div class="content">
+      <h2><i class="fas fa-flag-checkered"></i> Kesimpulan</h2>
+      <p>Ex Machina memberi gambaran dramatis tentang AI yang seolah hidup, tapi dunia nyata masih jauh dari AI dengan kesadaran. Perkembangan AI harus tetap etis dan berada di bawah kontrol manusia.</p>
+      <p>Terima kasih sudah mengikuti presentasi ini!</p>
+    </div>
+  </section>
+
+  <!-- Script JS -->
   <script src="js/script.js"></script>
+
 </body>
 </html>
