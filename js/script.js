@@ -1,9 +1,9 @@
-// script.js - JavaScript interaktif presentasi AI
+// script.js - Interaktif Presentasi AI
 
 let currentSlide = 1;
 const totalSlides = 12;
 
-// Fungsi untuk menampilkan slide sesuai index
+// Tampilkan slide tertentu
 function showSlide(n) {
   const slides = document.querySelectorAll('.slide');
   slides.forEach((slide, i) => {
@@ -31,7 +31,7 @@ function goToSlide(n) {
   }
 }
 
-// Navigasi dengan keyboard (opsional)
+// Navigasi keyboard
 document.addEventListener('keydown', function(e){
   if(e.key === 'ArrowRight'){
     nextSlide();
@@ -42,10 +42,10 @@ document.addEventListener('keydown', function(e){
   }
 });
 
-// Mulai background music otomatis
+// Background music autoplay
 window.onload = function() {
   const bgMusic = document.getElementById('bg-music');
-  bgMusic.volume = 0.3; // Atur volume
+  bgMusic.volume = 0.3;
   bgMusic.play().catch(() => {
     console.log("Audio autoplay diblokir, klik untuk memulai");
   });
