@@ -1,54 +1,44 @@
-// Ambil semua slide
-const slides = document.querySelectorAll('.slide');
-let currentSlide = 0;
+// script.js
 
-// Tampilkan slide tertentu
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove('active');
-    if (i === index) {
-      slide.classList.add('active');
+let currentSlide = 1;
+const totalSlides = 16;
+
+function showSlide(slideNumber) {
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach(slide => slide.classList.remove('active'));
+    const targetSlide = document.getElementById(`slide-${slideNumber}`);
+    if (targetSlide) {
+        targetSlide.classList.add('active');
+        currentSlide = slideNumber;
     }
-  });
-  currentSlide = index;
 }
 
-// Next slide
 function nextSlide() {
-  if (currentSlide < slides.length - 1) {
-    showSlide(currentSlide + 1);
-  }
+    if (currentSlide < totalSlides) {
+        showSlide(currentSlide + 1);
+    }
 }
 
-// Previous slide (opsional, bisa ditambahkan tombol kembali)
-// function prevSlide() {
-//   if (currentSlide > 0) {
-//     showSlide(currentSlide - 1);
-//   }
-// }
-
-// Button "Sudah Mengerti" langsung ke slide 16 (penutup)
-function goToSlide(index) {
-  if (index >= 0 && index < slides.length) {
-    showSlide(index);
-  }
+function prevSlide() {
+    if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+    }
 }
 
-// Floating icons random movement
-const icons = document.querySelectorAll('.floating-icon');
-icons.forEach(icon => {
-  const delay = parseFloat(icon.style.animationDelay) || 0;
-  icon.style.animationDelay = `${delay}s`;
+// Tombol "Sudah Mengerti" slide 1 → langsung ke slide 16
+function goToSlide(slideNumber) {
+    showSlide(slideNumber);
+}
+
+// Optional: kontrol keyboard (panah kanan/kiri)
+document.addEventListener('keydown', (e) => {
+    if (e.key === "ArrowRight") {
+        nextSlide();
+    } else if (e.key === "ArrowLeft") {
+        prevSlide();
+    }
 });
 
-// Background music kontrol (opsional)
+// Optional: background music kontrol
 const bgMusic = document.getElementById('bg-music');
-function toggleMusic() {
-  if (bgMusic.paused) {
-    bgMusic.play();
-  } else {
-    bgMusic.pause();
-  }
-}
-
-// Tombol play/pause musik (bisa ditambahkan di HTML)
+bgMusic.volume = 0.3; // volume rendah biar nggak mengganggu
