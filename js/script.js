@@ -1,9 +1,9 @@
-// script.js - JavaScript Interaktif Presentasi AI
+// script.js - JavaScript interaktif untuk presentasi AI
 
 let currentSlide = 1;
 const totalSlides = 12;
 
-// Tampilkan slide sesuai index
+// Fungsi untuk menampilkan slide tertentu
 function showSlide(n) {
   const slides = document.querySelectorAll('.slide');
   slides.forEach((slide, i) => {
@@ -14,41 +14,28 @@ function showSlide(n) {
   currentSlide = n;
 }
 
-// Next Slide
+// Lanjut ke slide berikutnya
 function nextSlide() {
-  if (currentSlide < totalSlides) {
+  if(currentSlide < totalSlides){
     showSlide(currentSlide + 1);
   }
 }
 
-// Previous Slide (opsional)
+// Kembali ke slide sebelumnya
 function prevSlide() {
-  if (currentSlide > 1) {
+  if(currentSlide > 1){
     showSlide(currentSlide - 1);
   }
 }
 
-// Lompat ke slide tertentu
+// Lompat ke slide tertentu (misal tombol Sudah Mengerti)
 function goToSlide(n) {
-  if (n >=1 && n <= totalSlides) {
+  if(n >= 1 && n <= totalSlides){
     showSlide(n);
   }
 }
 
-// Keyboard navigation (optional)
-document.addEventListener('keydown', (e) => {
-  if(e.key === 'ArrowRight') nextSlide();
-  if(e.key === 'ArrowLeft') prevSlide();
-});
-
-// Auto play background music
-document.addEventListener('DOMContentLoaded', () => {
-  const music = document.getElementById('bg-music');
-  if(music){
-    music.volume = 0.2;
-    music.play().catch(err => console.log('Audio autoplay failed')); 
-  }
-});
-
 // Inisialisasi slide pertama
-showSlide(currentSlide);
+document.addEventListener('DOMContentLoaded', () => {
+  showSlide(currentSlide);
+});
