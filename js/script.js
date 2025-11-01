@@ -7,9 +7,14 @@ const slides = document.querySelectorAll('.slide');
 // Background music
 const bgMusic = new Audio('audio/bergema sampai selamanya.mp3');
 bgMusic.loop = true;
-bgMusic.autoplay = true;
 bgMusic.volume = 0.3;
-bgMusic.play().catch(e => console.log("Autoplay prevented:", e));
+
+// mulai musik setelah klik salah satu tombol
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        if(bgMusic.paused) bgMusic.play().catch(e => console.log(e));
+    });
+});
 
 // Tampilkan slide tertentu
 function showSlide(n){
