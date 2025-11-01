@@ -1,181 +1,159 @@
-/* ===========================
-   RESET & GLOBAL STYLING
-=========================== */
+/* Reset dan dasar */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   color: #fff;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
-/* ===========================
-   SLIDE CONTAINER
-=========================== */
 .slide {
   display: none;
-  min-height: 100vh;
   width: 100%;
+  min-height: 100vh;
   padding: 50px 20px;
-  text-align: center;
   position: relative;
-  animation: fadeSlide 1s ease forwards;
+  text-align: center;
+  animation: fadeIn 1s ease forwards;
 }
 
 .slide.active {
   display: block;
 }
 
-/* ===========================
-   SLIDE CONTENT
-=========================== */
 .content {
   max-width: 900px;
-  margin: 0 auto;
-  animation: slideUp 1s ease;
+  margin: auto;
+  background: rgba(0,0,0,0.6);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 h1, h2 {
   margin-bottom: 20px;
-  font-weight: bold;
-  animation: scaleUp 1s ease;
+  color: #ffeb3b;
+  text-shadow: 1px 1px 5px #000;
 }
 
-p, ul {
+p, ul, table {
   margin-bottom: 20px;
   font-size: 1.1rem;
   line-height: 1.6;
-  animation: fadeInText 1s ease;
 }
 
-ul li {
-  margin: 10px 0;
+ul {
+  list-style: disc inside;
 }
 
-/* ===========================
-   BUTTONS
-=========================== */
+table.comparison {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table.comparison th, table.comparison td {
+  border: 1px solid #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+table.comparison th {
+  background: rgba(255,235,59,0.2);
+}
+
+/* Gambar slide */
+.slide-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: 0 0 15px #000;
+}
+
+/* Tombol */
 .btn {
+  background: #ffeb3b;
+  color: #000;
+  border: none;
   padding: 12px 25px;
   margin: 10px;
+  border-radius: 8px;
   font-size: 1rem;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(45deg, #00c6ff, #0072ff);
-  color: white;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .btn:hover {
+  background: #fdd835;
   transform: scale(1.1);
-  background: linear-gradient(45deg, #0072ff, #00c6ff);
+  box-shadow: 0 0 15px #fff;
 }
 
-/* ===========================
-   CHOICE BOX (SLIDE 1)
-=========================== */
 .choice-box {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-/* ===========================
-   SLIDE IMAGES
-=========================== */
-.slide-img {
-  max-width: 80%;
-  margin: 20px auto;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  animation: fadeInText 1.2s ease;
-}
-
-/* ===========================
-   COMPARISON TABLE
-=========================== */
-table.comparison {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  color: #fff;
-}
-
-table.comparison th, table.comparison td {
-  border: 1px solid #fff;
-  padding: 12px;
-  text-align: center;
-}
-
-table.comparison th {
-  background: rgba(255,255,255,0.2);
-}
-
-/* ===========================
-   FLOATING ICONS
-=========================== */
+/* Floating Icons */
 .floating-icon {
   position: absolute;
   font-size: 2rem;
   color: rgba(255,255,255,0.7);
-  animation: floatIcon 6s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
-/* ===========================
-   ANIMATIONS
-=========================== */
-@keyframes floatIcon {
-  0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
-  25% { transform: translateY(-20px) rotate(10deg); opacity: 1; }
-  50% { transform: translateY(0px) rotate(0deg); opacity: 0.9; }
-  75% { transform: translateY(20px) rotate(-10deg); opacity: 1; }
-  100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg);}
+  25% { transform: translateY(-20px) rotate(15deg);}
+  50% { transform: translateY(0px) rotate(0deg);}
+  75% { transform: translateY(20px) rotate(-15deg);}
+  100% { transform: translateY(0px) rotate(0deg);}
 }
 
-@keyframes fadeSlide {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Animasi slide masuk */
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.95);}
+  to {opacity: 1; transform: scale(1);}
 }
 
-@keyframes slideUp {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes scaleUp {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-@keyframes fadeInText {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* ===========================
-   RESPONSIVE
-=========================== */
-@media (max-width: 1024px) {
-  .content { padding: 30px 15px; }
-  .slide-img { max-width: 90%; }
-  .btn { font-size: 0.9rem; padding: 10px 20px; }
-}
-
+/* Responsif */
 @media (max-width: 768px) {
-  .choice-box { flex-direction: column; gap: 20px; }
+  .content {
+    padding: 20px;
+  }
+
   h1 { font-size: 1.8rem; }
   h2 { font-size: 1.5rem; }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .slide { padding: 20px 10px; }
-  .btn { padding: 8px 16px; font-size: 0.85rem; }
-  .floating-icon { font-size: 1.5rem; }
+  .content {
+    padding: 15px;
+  }
+
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.3rem; }
+
+  .btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  .choice-box {
+    flex-direction: column;
+  }
 }
