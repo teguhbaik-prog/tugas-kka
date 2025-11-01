@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var audio = document;getElementbyId("bgMusic");
     if (laudioplaying) audio.play();
     else audio.pause();
-    audioplaying = laudioPlaying
+    audioplaying = laudioPlaying;
     
   const slides = document.querySelectorAll(".slide");
   const bgMusic = document.createElement("audio");
