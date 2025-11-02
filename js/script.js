@@ -1,116 +1,151 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   let currentSlide = 1;
   const totalSlides = 16;
-
   const slides = document.querySelectorAll(".slide");
-  const buttons = document.querySelectorAll(".btn");
-  const floatingIcons = document.querySelectorAll(".floating-icon");
 
-  // ===================== MUSIC =====================
-  const bgMusic = document.createElement("audio");
-  bgMusic.src = "audio/bergema sampai selamanya.mp3";
+  // ===== MUSIC =====
+  const bgMusic = new Audio("audio/bergema sampai selamanya.mp3");
   bgMusic.loop = true;
   bgMusic.volume = 0.5;
-  document.body.appendChild(bgMusic);
 
-  const playMusic = () => {
-    bgMusic.play().catch(() => {
-      console.log("Klik layar untuk memulai musik.");
-    });
+  // Music controls overlay
+  const musicControl = document.createElement("div");
+  musicControl.style.position = "fixed";
+  musicControl.style.top = "20px";
+  musicControl.style.right = "20px";
+  musicControl.style.zIndex = 999;
+  musicControl.style.display = "flex";
+  musicControl.style.alignItems = "center";
+  musicControl.innerHTML = `
+    <button id="music-toggle" style="background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">
+      <i class="fas fa-volume-up"></i>
+    </button>
+    <input type="range" id="music-volume" min="0" max="1" step="0.01" value="0.5" style="margin-left:5px;">
+  `;
+  document.body.appendChild(musicControl);
+
+  const musicToggleBtn = document.getElementById("music-toggle");
+  const musicVolume = document.getElementById("music-volume");
+
+  musicToggleBtn.addEventListener("click", () => {
+    if (bgMusic.paused) {
+      bgMusic.play();
+      musicToggleBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+    } else {
+      bgMusic.pause();
+      musicToggleBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+    }
+  });
+
+  musicVolume.addEventListener("input", () => {
+    bgMusic.volume = musicVolume.value;
+  });
+
+  // Force play music on first click
+  const startMusic = () => {
+    bgMusic.play().catch(() => console.log("Klik untuk memulai musik."));
+    document.body.removeEventListener("click", startMusic);
   };
+  document.body.addEventListener("click", startMusic);
 
-  // Paksa musik play saat klik body atau tombol
-  document.body.addEventListener("click", playMusic);
-  buttons.forEach(btn => btn.addEventListener("click", playMusic));
-
-  // ===================== SHOW SLIDE =====================
+  // ===== SLIDE NAVIGATION =====
   function showSlide(n) {
     slides.forEach((slide, idx) => {
       slide.classList.remove("active");
+      slide.style.opacity = 0;
+      slide.style.transform = "translateY(20px)";
       if (idx === n - 1) {
         slide.classList.add("active");
+        setTimeout(() => {
+          slide.style.opacity = 1;
+          slide.style.transform = "translateY(0)";
+        }, 50);
       }
     });
+    updateSlideIndicator();
   }
 
-  // ===================== NAVIGATION =====================
-  window.nextSlide = function() {
+  window.nextSlide = function () {
     if (currentSlide < totalSlides) {
       currentSlide++;
       showSlide(currentSlide);
     }
   };
 
-  window.prevSlide = function() {
+  window.prevSlide = function () {
     if (currentSlide > 1) {
       currentSlide--;
       showSlide(currentSlide);
     }
   };
 
-  window.goToSlide = function(n) {
+  window.goToSlide = function (n) {
     if (n >= 1 && n <= totalSlides) {
       currentSlide = n;
       showSlide(currentSlide);
     }
   };
 
-  // Keyboard navigation
-  document.addEventListener("keydown", function(e) {
+  // ===== KEYBOARD =====
+  document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowRight") nextSlide();
     if (e.key === "ArrowLeft") prevSlide();
+    if (e.key.toLowerCase() === "m") {
+      musicToggleBtn.click(); // toggle music
+    }
   });
 
-  // ===================== FLOATING ICONS =====================
-  floatingIcons.forEach((icon, idx) => {
-    const randomX = Math.random() * window.innerWidth * 0.8;
-    const randomY = Math.random() * window.innerHeight * 0.8;
-    icon.style.left = `${randomX}px`;
-    icon.style.top = `${randomY}px`;
-    icon.style.animationDelay = `${idx * 0.5}s`;
-  });
+  // ===== SLIDE INDICATOR =====
+  const slideIndicator = document.createElement("div");
+  slideIndicator.style.position = "fixed";
+  slideIndicator.style.bottom = "20px";
+  slideIndicator.style.right = "20px";
+  slideIndicator.style.color = "white";
+  slideIndicator.style.fontSize = "1rem";
+  slideIndicator.style.zIndex = 999;
+  document.body.appendChild(slideIndicator);
 
-  function animateFloating() {
-    floatingIcons.forEach(icon => {
-      const translateX = (Math.random() - 0.5) * 30;
-      const translateY = (Math.random() - 0.5) * 30;
-      const rotate = (Math.random() - 0.5) * 20;
-      icon.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
-    });
-    requestAnimationFrame(animateFloating);
+  function updateSlideIndicator() {
+    slideIndicator.textContent = `Slide ${currentSlide} / ${totalSlides}`;
   }
-  animateFloating();
 
-  // ===================== BUTTON HOVER =====================
-  buttons.forEach(btn => {
-    btn.addEventListener("mouseenter", () => {
-      btn.style.transform = "scale(1.12) rotate(-2deg)";
-      btn.style.boxShadow = "0 8px 25px rgba(255,75,43,0.6)";
-    });
-    btn.addEventListener("mouseleave", () => {
-      btn.style.transform = "scale(1)";
-      btn.style.boxShadow = "0 5px 15px rgba(255,75,43,0.5)";
-    });
+  // ===== FLOATING ICONS =====
+  const floatingIcons = document.querySelectorAll(".floating-icon");
+  floatingIcons.forEach((icon, idx) => {
+    const baseX = Math.random() * window.innerWidth * 0.8;
+    const baseY = Math.random() * window.innerHeight * 0.8;
+    const speed = 0.5 + Math.random() * 0.5;
+    icon.dataset.baseX = baseX;
+    icon.dataset.baseY = baseY;
+    icon.dataset.speed = speed;
+    icon.style.left = baseX + "px";
+    icon.style.top = baseY + "px";
   });
 
-  // ===================== INITIAL SLIDE =====================
+  function animateFloatingIcons() {
+    floatingIcons.forEach((icon) => {
+      const time = Date.now() * 0.002 * icon.dataset.speed;
+      const offsetX = Math.sin(time) * 20;
+      const offsetY = Math.cos(time) * 20;
+      icon.style.transform = `translate(${offsetX}px, ${offsetY}px) rotate(${offsetX + offsetY}deg)`;
+    });
+    requestAnimationFrame(animateFloatingIcons);
+  }
+  animateFloatingIcons();
+
+  // ===== BUTTON HOVER EFFECTS =====
+  const buttons = document.querySelectorAll(".btn");
+  buttons.forEach((btn) => {
+    btn.addEventListener("mouseenter", () => (btn.style.transform = "scale(1.1)"));
+    btn.addEventListener("mouseleave", () => (btn.style.transform = "scale(1)"));
+  });
+
+  // ===== INITIAL SLIDE =====
   showSlide(currentSlide);
 
-  // ===================== LASTAREH BUTTON LOGIC =====================
-  const choiceButtons = document.querySelectorAll(".choice-box .btn");
-  choiceButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      if (btn.textContent.toLowerCase().includes("lastareh")) {
-        goToSlide(totalSlides);
-      }
-    });
+  // ===== LASTAREH MENGERTI BUTTON FIX =====
+  const lastarehBtns = document.querySelectorAll(".choice-box button:first-child");
+  lastarehBtns.forEach((btn) => {
+    btn.addEventListener("click", () => goToSlide(totalSlides));
   });
-
-  // ===================== AUTO-PLAY FALLBACK =====================
-  const tryPlayMusic = () => {
-    bgMusic.play().catch(() => {
-      console.log("Klik tombol atau layar untuk memulai musik.");
-    });
-  };
-  setTimeout(tryPlayMusic, 500);
 });
