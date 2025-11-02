@@ -11,55 +11,20 @@ body {
   color: #fff;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  position: relative;
-}
-
-/* MUSIC CONTROL */
-.music-control {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  background: rgba(0,0,0,0.5);
-  padding: 10px 15px;
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  z-index: 1000;
-}
-
-.music-control button {
-  background: linear-gradient(45deg, #ff416c, #ff4b2b);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.music-control button:hover {
-  transform: scale(1.2);
-}
-
-.music-control input[type="range"] {
-  cursor: pointer;
 }
 
 /* FLOATING ICONS */
 .floating-icon {
   position: absolute;
   font-size: 2rem;
-  color: rgba(255, 255, 255, 0.5);
-  animation: float 6s ease-in-out infinite;
-  transition: transform 0.5s ease;
+  color: rgba(255, 255, 255, 0.4);
+  animation: float 6s ease-in-out infinite alternate;
+  z-index: 1;
 }
 
 @keyframes float {
   0% { transform: translateY(0px) rotate(0deg);}
-  50% { transform: translateY(-15px) rotate(10deg);}
+  50% { transform: translateY(-25px) rotate(15deg);}
   100% { transform: translateY(0px) rotate(0deg);}
 }
 
@@ -72,6 +37,7 @@ body {
   text-align: center;
   position: relative;
   animation: fadein 1s ease;
+  z-index: 2;
 }
 
 .slide.active {
@@ -79,7 +45,7 @@ body {
 }
 
 @keyframes fadein {
-  from { opacity: 0; transform: translateY(20px);}
+  from { opacity: 0; transform: translateY(30px);}
   to { opacity: 1; transform: translateY(0);}
 }
 
@@ -87,18 +53,19 @@ body {
 .content {
   max-width: 900px;
   margin: 0 auto;
-  padding: 25px 30px;
+  padding: 25px;
   background: rgba(0,0,0,0.6);
   border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.7);
 }
 
 /* HEADINGS */
 h1, h2 {
   margin-bottom: 20px;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
 }
 
+/* PARAGRAPHS & LIST */
 p, ul, li {
   margin-bottom: 15px;
   line-height: 1.6;
@@ -116,11 +83,12 @@ ul li {
   margin-top: 15px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.7);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .slide-img:hover {
-  transform: scale(1.05) rotate(2deg);
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.8);
 }
 
 /* BUTTONS */
@@ -174,15 +142,56 @@ table.comparison th {
   font-weight: bold;
 }
 
+/* MUSIC CONTROL */
+.music-control {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 999;
+  background: rgba(0,0,0,0.5);
+  padding: 8px 12px;
+  border-radius: 25px;
+}
+
+.music-control button {
+  background: linear-gradient(45deg, #4b6cb7, #182848);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.music-control button:hover {
+  transform: scale(1.2);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+}
+
+.music-control input[type="range"] {
+  cursor: pointer;
+  width: 100px;
+}
+
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 1024px) {
   .slide-img { width: 200px; }
+  .music-control input[type="range"] { width: 80px; }
 }
 
 @media screen and (max-width: 768px) {
-  .content { padding: 20px; }
+  .content { padding: 15px; }
   .btn { padding: 10px 20px; font-size: 0.9rem; }
   .slide-img { width: 180px; }
+  .music-control input[type="range"] { width: 70px; }
 }
 
 @media screen and (max-width: 480px) {
@@ -192,5 +201,5 @@ table.comparison th {
   p, li { font-size: 0.9rem; }
   .btn { padding: 8px 15px; font-size: 0.8rem; }
   .choice-box { flex-direction: column; gap: 10px; }
-  .music-control { top: 10px; right: 10px; padding: 8px 12px; }
+  .music-control input[type="range"] { width: 60px; }
 }
