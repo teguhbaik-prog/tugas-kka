@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const slides = document.querySelectorAll(".slide");
 
   // MUSIC SETUP
-  const bgMusic = new Audio("audio/bergema sampai selamanya.mp3");
+  const bgMusic = new Audio("bergema sampai selamanya.mp3");
   bgMusic.loop = true;
   bgMusic.volume = 0.5;
 
