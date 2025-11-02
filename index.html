@@ -1,207 +1,184 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Presentasi AI - Ex Machina</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentasi AI - Ex Machina</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- MUSIC CONTROLS -->
-  <div class="music-control">
-    <button id="music-toggle"><i class="fas fa-play"></i></button>
-    <input type="range" id="music-volume" min="0" max="1" step="0.01" value="0.5">
+<!-- Floating Icons -->
+<i class="fas fa-robot floating-icon"></i>
+<i class="fas fa-microchip floating-icon"></i>
+<i class="fas fa-brain floating-icon"></i>
+<i class="fas fa-lightbulb floating-icon"></i>
+<i class="fas fa-cogs floating-icon"></i>
+<i class="fas fa-network-wired floating-icon"></i>
+
+<!-- Music Control -->
+<div class="music-control">
+  <button id="playPause"><i class="fas fa-play"></i></button>
+  <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- Audio -->
+<audio id="bg-music" loop>
+  <source src="audio/bergema sampai selamanya.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Slides -->
+<section class="slide active" id="slide-1">
+  <div class="content">
+    <h1>Terima kasih sudah scan QR Code!</h1>
+    <p>Apakah kamu sudah paham presentasi video tadi?</p>
+    <div class="choice-box">
+      <button class="btn" onclick="goToSlide(16)"><i class="fas fa-check"></i> lastareh Mengerti</button>
+      <button class="btn" onclick="nextSlide()"><i class="fas fa-question"></i> bunten Mengerti</button>
+    </div>
   </div>
+</section>
 
-  <!-- FLOATING ICONS -->
-  <i class="fas fa-robot floating-icon"></i>
-  <i class="fas fa-microchip floating-icon"></i>
-  <i class="fas fa-brain floating-icon"></i>
-  <i class="fas fa-lightbulb floating-icon"></i>
-  <i class="fas fa-cogs floating-icon"></i>
-  <i class="fas fa-network-wired floating-icon"></i>
+<section class="slide" id="slide-2">
+  <div class="content">
+    <h2><i class="fas fa-robot"></i> Halo, perkenalkan nama saya Teguh Coyono Romadhon</h2>
+    <p>Pada kesempatan ini saya akan membahas bagaimana AI digambarkan dalam film <strong>Ex Machina</strong> dan membandingkannya dengan AI di dunia nyata.</p>
+    <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
+  </div>
+</section>
 
-  <!-- SLIDES -->
-  <!-- Slide 1 -->
-  <section class="slide active" id="slide-1">
-    <div class="content">
-      <h1>Terima kasih sudah scan QR Code!</h1>
-      <p>Apakah kamu sudah paham presentasi video tadi?</p>
-      <div class="choice-box">
-        <button class="btn" id="btn-understand"><i class="fas fa-check"></i> Lastareh Mengerti</button>
-        <button class="btn" onclick="nextSlide()"><i class="fas fa-question"></i> Bunten Mengerti</button>
-      </div>
-    </div>
-  </section>
+<section class="slide" id="slide-3">
+  <div class="content">
+    <h2><i class="fas fa-film"></i> Ringkasan Film</h2>
+    <p>Film Ex Machina menceritakan Caleb, seorang programmer muda yang diundang ke fasilitas terpencil milik Nathan Bateman, seorang genius teknologi. Tujuannya adalah menguji AI humanoid bernama Ava. Tes ini mirip Tes Turing untuk mengetahui apakah Ava memiliki kesadaran.</p>
+    <ul>
+      <li>Ava dapat berbicara, membaca ekspresi manusia, dan meniru emosi.</li>
+      <li>Ia menunjukkan perilaku kompleks, strategi, dan kecerdasan tinggi.</li>
+      <li>Eksperimen ini menimbulkan dilema etika bagi manusia.</li>
+    </ul>
+    <img src="images/ava.jpeg" alt="Ava" class="slide-img">
+    <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
+  </div>
+</section>
 
-  <!-- Slide 2 -->
-  <section class="slide" id="slide-2">
-    <div class="content">
-      <h2><i class="fas fa-robot"></i> Halo, perkenalkan nama saya Teguh Coyono Romadhon</h2>
-      <p>Pada kesempatan ini saya akan membahas bagaimana AI digambarkan dalam film <strong>Ex Machina</strong> dan membandingkannya dengan AI di dunia nyata.</p>
-      <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
-    </div>
-  </section>
+<section class="slide" id="slide-4">
+  <div class="content">
+    <h2><i class="fas fa-heart"></i> Apakah AI punya emosi?</h2>
+    <p>Film menunjukkan Ava tampak memiliki emosi: takut, peduli, atau tertarik pada Caleb. Namun ini hanya simulasi perilaku untuk memengaruhi manusia. AI di dunia nyata belum memiliki perasaan asli dan hanya meniru emosi manusia berdasarkan data.</p>
+    <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
+  </div>
+</section>
 
-  <!-- Slide 3 -->
-  <section class="slide" id="slide-3">
-    <div class="content">
-      <h2><i class="fas fa-film"></i> Ringkasan Film</h2>
-      <p>Film Ex Machina menceritakan Caleb, seorang programmer muda yang diundang ke fasilitas terpencil milik Nathan Bateman, seorang genius teknologi. Tujuannya adalah menguji AI humanoid bernama Ava.</p>
-      <ul>
-        <li>Ava dapat berbicara, membaca ekspresi manusia, dan meniru emosi.</li>
-        <li>Ia menunjukkan perilaku kompleks, strategi, dan kecerdasan tinggi.</li>
-        <li>Eksperimen ini menimbulkan dilema etika bagi manusia.</li>
-      </ul>
-      <img src="images/ava.jpeg" alt="Ava" class="slide-img">
-      <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
-    </div>
-  </section>
+<section class="slide" id="slide-5">
+  <div class="content">
+    <h2><i class="fas fa-brain"></i> Apakah AI lebih cerdas dari manusia?</h2>
+    <p>Ava memiliki kecerdasan tinggi: membaca bahasa tubuh, memahami bahasa manusia, menyusun strategi, dan memanipulasi situasi demi tujuannya. AI dunia nyata masih terbatas (narrow AI) dan unggul hanya pada tugas spesifik, belum fleksibel seperti manusia.</p>
+    <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
+  </div>
+</section>
 
-  <!-- Slide 4 -->
-  <section class="slide" id="slide-4">
-    <div class="content">
-      <h2><i class="fas fa-heart"></i> Apakah AI punya emosi?</h2>
-      <p>Film menunjukkan Ava tampak memiliki emosi: takut, peduli, atau tertarik pada Caleb. Namun ini hanya simulasi perilaku untuk memengaruhi manusia. AI di dunia nyata belum memiliki perasaan asli dan hanya meniru emosi manusia berdasarkan data.</p>
-      <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
-    </div>
-  </section>
+<section class="slide" id="slide-6">
+  <div class="content">
+    <h2><i class="fas fa-exclamation-triangle"></i> Apakah menjadi ancaman?</h2>
+    <p>Dalam film, AI dengan kecerdasan tinggi dan tujuan sendiri bisa menjadi ancaman. Di dunia nyata, AI masih terbatas dan hanya bertindak sesuai algoritma. Pengawasan manusia tetap diperlukan agar aman.</p>
+    <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
+  </div>
+</section>
 
-  <!-- Slide 5 -->
-  <section class="slide" id="slide-5">
-    <div class="content">
-      <h2><i class="fas fa-brain"></i> Apakah AI lebih cerdas dari manusia?</h2>
-      <p>Ava memiliki kecerdasan tinggi: membaca bahasa tubuh, memahami bahasa manusia, menyusun strategi, dan memanipulasi situasi demi tujuannya. AI dunia nyata masih terbatas (narrow AI) dan unggul hanya pada tugas spesifik, belum fleksibel seperti manusia.</p>
-      <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
-    </div>
-  </section>
+<section class="slide" id="slide-7">
+  <div class="content">
+    <h2><i class="fas fa-users"></i> Karakter Utama</h2>
+    <ul>
+      <li>Caleb – Programmer yang diuji (<img src="images/caleb.jpeg" alt="Caleb" class="slide-img"></li>
+      <li>Nathan – Pencipta Ava (<img src="images/nathan.jpeg" alt="Nathan" class="slide-img"></li>
+      <li>Ava – Robot AI humanoid (<img src="images/ava.jpeg" alt="Ava" class="slide-img"></li>
+    </ul>
+    <button class="btn" onclick="nextSlide()">Lanjut <i class="fas fa-arrow-right"></i></button>
+  </div>
+</section>
 
-  <!-- Slide 6 -->
-  <section class="slide" id="slide-6">
-    <div class="content">
-      <h2><i class="fas fa-exclamation-triangle"></i> Apakah AI menjadi ancaman?</h2>
-      <p>Dalam film, AI dengan kecerdasan tinggi dan tujuan sendiri bisa menjadi ancaman. Di dunia nyata, AI masih terbatas dan hanya bertindak sesuai algoritma. Pengawasan manusia tetap diperlukan agar aman.</p>
-      <button class="btn" onclick="nextSlide()">Lanjut</button>
-    </div>
-  </section>
+<section class="slide" id="slide-8">
+  <div class="content">
+    <h2><i class="fas fa-lightbulb"></i> AI di Dunia Nyata</h2>
+    <p>AI modern unggul pada tugas spesifik: pengenalan wajah, terjemahan bahasa, rekomendasi konten, dan mobil otonom. AI belum memiliki kesadaran atau emosi sejati.</p>
+    <button class="btn" onclick="nextSlide()">Lanjut</button>
+  </div>
+</section>
 
-  <!-- Slide 7 -->
-  <section class="slide" id="slide-7">
-    <div class="content">
-      <h2><i class="fas fa-users"></i> Karakter Utama</h2>
-      <ul>
-        <li>Caleb – Programmer yang diuji <img src="images/caleb.jpeg" alt="Caleb" class="slide-img"></li>
-        <li>Nathan – Pencipta Ava <img src="images/nathan.jpeg" alt="Nathan" class="slide-img"></li>
-        <li>Ava – Robot AI humanoid <img src="images/ava.jpeg" alt="Ava" class="slide-img"></li>
-      </ul>
-      <button class="btn" onclick="nextSlide()">Lanjut</button>
-    </div>
-  </section>
+<section class="slide" id="slide-9">
+  <div class="content">
+    <h2><i class="fas fa-shield-alt"></i> Etika & Risiko AI</h2>
+    <p>Pengembangan AI harus etis, diawasi, dan tetap di bawah kendali manusia. Film menekankan risiko AI cerdas tanpa kontrol, termasuk manipulasi dan ancaman potensial.</p>
+    <button class="btn" onclick="nextSlide()">Lanjut</button>
+  </div>
+</section>
 
-  <!-- Slide 8 -->
-  <section class="slide" id="slide-8">
-    <div class="content">
-      <h2><i class="fas fa-lightbulb"></i> AI di Dunia Nyata</h2>
-      <p>AI modern unggul pada tugas spesifik: pengenalan wajah, terjemahan bahasa, rekomendasi konten, dan mobil otonom. AI belum memiliki kesadaran atau emosi sejati.</p>
-      <button class="btn" onclick="nextSlide()">Lanjut</button>
-    </div>
-  </section>
+<section class="slide" id="slide-10">
+  <div class="content">
+    <h2><i class="fas fa-bullseye"></i> Tujuan Pengujian</h2>
+    <p>Tujuan pengujian Ava adalah menilai apakah AI dapat meniru kesadaran manusia, sekaligus melihat kemampuan manusia mengenali kesadaran tersebut melalui interaksi.</p>
+    <button class="btn" onclick="nextSlide()">Lanjut</button>
+  </div>
+</section>
 
-  <!-- Slide 9 -->
-  <section class="slide" id="slide-9">
-    <div class="content">
-      <h2><i class="fas fa-shield-alt"></i> Etika & Risiko AI</h2>
-      <p>Pengembangan AI harus etis, diawasi, dan tetap di bawah kendali manusia. Film menekankan risiko AI cerdas tanpa kontrol, termasuk manipulasi dan ancaman potensial.</p>
-      <button class="btn" onclick="nextSlide()">Lanjut</button>
-    </div>
-  </section>
+<section class="slide" id="slide-11">
+  <div class="content">
+    <h2><i class="fas fa-quote-left"></i> Quotes Film</h2>
+    <p>"Isn't it strange, to create something that hates you?" – Nathan</p>
+    <p>"The challenge is not to mimic consciousness but to create it." – Caleb</p>
+    <button class="btn" onclick="nextSlide()">Lanjut</button>
+  </div>
+</section>
 
-  <!-- Slide 10 -->
-  <section class="slide" id="slide-10">
-    <div class="content">
-      <h2><i class="fas fa-bullseye"></i> Tujuan Pengujian</h2>
-      <p>Tujuan pengujian Ava adalah menilai apakah AI dapat meniru kesadaran manusia, sekaligus melihat kemampuan manusia mengenali kesadaran tersebut melalui interaksi.</p>
-      <button class="btn" onclick="nextSlide()">Lanjut</button>
-    </div>
-  </section>
+<section class="slide" id="slide-12">
+  <div class="content">
+    <h2><i class="fas fa-balance-scale"></i> Analisis Simbolisme</h2>
+    <table class="comparison">
+      <tr><th>Simbol Film</th><th>Makna</th></tr>
+      <tr><td>Kaca & Transparansi</td><td>Batas manusia & ciptaan</td></tr>
+      <tr><td>Warna & Ruang</td><td>Isolasi vs kebebasan</td></tr>
+      <tr><td>Referensi Mitologi & Alkitab</td><td>Pencipta vs ciptaan</td></tr>
+    </table>
+    <button class="btn" onclick="nextSlide()">Lanjut</button>
+  </div>
+</section>
 
-  <!-- Slide 11 -->
-  <section class="slide" id="slide-11">
-    <div class="content">
-      <h2><i class="fas fa-quote-left"></i> Quotes Film</h2>
-      <p>"Isn't it strange, to create something that hates you?" – Nathan</p>
-      <p>"The challenge is not to mimic consciousness but to create it." – Caleb</p>
-      <button class="btn" onclick="nextSlide()">Lanjut</button>
-    </div>
-  </section>
+<section class="slide" id="slide-13">
+  <div class="content">
+    <h2><i class="fas fa-lightbulb"></i> Analisis AI vs Manusia</h2>
+    <p>Ava tampak hidup dan memiliki tujuan sendiri. AI nyata hanya mensimulasikan kecerdasan, tanpa kesadaran atau pengalaman batin. Ini menimbulkan pertanyaan etis dan filosofi mengenai AI di masa depan.</p>
+    <button class="btn" onclick="nextSlide()">Lanjut</button>
+  </div>
+</section>
 
-  <!-- Slide 12 -->
-  <section class="slide" id="slide-12">
-    <div class="content">
-      <h2><i class="fas fa-balance-scale"></i> Analisis Simbolisme</h2>
-      <table class="comparison">
-        <tr>
-          <th>Simbol Film</th>
-          <th>Makna</th>
-        </tr>
-        <tr>
-          <td>Kaca & Transparansi</td>
-          <td>Batas manusia & ciptaan</td>
-        </tr>
-        <tr>
-          <td>Warna & Ruang</td>
-          <td>Isolasi vs kebebasan</td>
-        </tr>
-        <tr>
-          <td>Referensi Mitologi & Alkitab</td>
-          <td>Pencipta vs ciptaan</td>
-        </tr>
-      </table>
-      <button class="btn" onclick="nextSlide()">Lanjut</button>
-    </div>
-  </section>
+<section class="slide" id="slide-14">
+  <div class="content">
+    <h2><i class="fas fa-network-wired"></i> AI dalam Kehidupan Nyata</h2>
+    <ul>
+      <li>ChatGPT, mobil otonom, rekomendasi konten.</li>
+      <li>Narrow AI: unggul di satu tugas saja.</li>
+      <li>Tidak memiliki kesadaran atau emosi sejati.</li>
+    </ul>
+    <button class="btn" onclick="nextSlide()">Lanjut</button>
+  </div>
+</section>
 
-  <!-- Slide 13 -->
-  <section class="slide" id="slide-13">
-    <div class="content">
-      <h2><i class="fas fa-lightbulb"></i> Analisis AI vs Manusia</h2>
-      <p>Ava tampak hidup dan memiliki tujuan sendiri. AI nyata hanya mensimulasikan kecerdasan, tanpa kesadaran atau pengalaman batin. Ini menimbulkan pertanyaan etis dan filosofi mengenai AI di masa depan.</p>
-      <button class="btn" onclick="nextSlide()">Lanjut</button>
-    </div>
-  </section>
+<section class="slide" id="slide-15">
+  <div class="content">
+    <h2><i class="fas fa-brain"></i> Kesimpulan Analisis</h2>
+    <p>Ex Machina menggambarkan AI dramatis dengan perilaku seperti manusia. Di dunia nyata, AI masih terbatas, simulatif, tanpa kesadaran atau tujuan sendiri. Kontrol manusia dan etika tetap sangat penting.</p>
+    <button class="btn" onclick="nextSlide()">Lanjut</button>
+  </div>
+</section>
 
-  <!-- Slide 14 -->
-  <section class="slide" id="slide-14">
-    <div class="content">
-      <h2><i class="fas fa-network-wired"></i> AI dalam Kehidupan Nyata</h2>
-      <ul>
-        <li>ChatGPT, mobil otonom, rekomendasi konten.</li>
-        <li>Narrow AI: unggul di satu tugas saja.</li>
-        <li>Tidak memiliki kesadaran atau emosi sejati.</li>
-      </ul>
-      <button class="btn" onclick="nextSlide()">Lanjut</button>
-    </div>
-  </section>
+<section class="slide" id="slide-16">
+  <div class="content">
+    <h2><i class="fas fa-flag-checkered"></i> Terima Kasih!</h2>
+    <p>Semoga presentasi ini membantu memahami AI dalam film dan kenyataan. Sampai jumpa!</p>
+  </div>
+</section>
 
-  <!-- Slide 15 -->
-  <section class="slide" id="slide-15">
-    <div class="content">
-      <h2><i class="fas fa-brain"></i> Kesimpulan Analisis</h2>
-      <p>Ex Machina menggambarkan AI dramatis dengan perilaku seperti manusia. Di dunia nyata, AI masih terbatas, simulatif, tanpa kesadaran atau tujuan sendiri. Kontrol manusia dan etika tetap sangat penting.</p>
-      <button class="btn" onclick="nextSlide()">Lanjut</button>
-    </div>
-  </section>
-
-  <!-- Slide 16 -->
-  <section class="slide" id="slide-16">
-    <div class="content">
-      <h2><i class="fas fa-flag-checkered"></i> Terima Kasih!</h2>
-      <p>Semoga presentasi ini membantu memahami AI dalam film dan kenyataan. Sampai jumpa!</p>
-    </div>
-  </section>
-
-  <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
